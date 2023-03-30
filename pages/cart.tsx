@@ -3,9 +3,11 @@ import Layout from "../components/Layout";
 import { Store } from "../utils/Store";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { TrashIcon } from "@heroicons/react/24/outline";
 
 const CartScreen: React.FC = (): React.ReactElement => {
+  const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
@@ -36,36 +38,54 @@ const CartScreen: React.FC = (): React.ReactElement => {
                   <th className="p-5 text-right">Price</th>
                   <th className="p-5">Action</th>
                 </tr>
+                <tbody>
+                  {/* Row containing Cart Item Information */}
+                  {cartItems.map((item) => (
+                    <tr key={item.slug} className="border-b">
+                      <td>
+                        <Link
+                          className="flex items-center"
+                          href={`/product/${item.slug}`}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            width={50}
+                            height={50}
+                          ></Image>
+                          &nbsp;
+                          {item.name}
+                        </Link>
+                      </td>
+                      <td className="px-5 text-right">{item.quantity}</td>
+                      <td className="px-5 text-right">${item.price}</td>
+                      <td className="px-5 text-center">
+                        <button onClick={() => removeItemHandler(item)}>
+                          <TrashIcon className="h-5 w-5"></TrashIcon>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
-              <tbody>
-                {/* Row containing Cart Item Information */}
-                {cartItems.map((item) => (
-                  <tr key={item.slug} className="border-b">
-                    <td>
-                      <Link
-                        className="flex items-center"
-                        href={`/product/${item.slug}`}
-                      >
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          width={50}
-                          height={50}
-                        ></Image>
-                        &nbsp;
-                        {item.name}
-                      </Link>
-                    </td>
-                    <td className="px-5 text-right">{item.quantity}</td>
-                    <td className="px-5 text-right">${item.price}</td>
-                    <td className="px-5 text-center">
-                      <button onClick={() => removeItemHandler(item)}>
-                        <TrashIcon className="h-5 w-5"></TrashIcon>
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+            </div>
+            <div className="card p-5">
+              <ul>
+                <li>
+                  <div className="pb-3 text-xl">
+                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}) :
+                    ${cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                  </div>
+                </li>
+                <li>
+                  <button
+                    className="primary-button w-full"
+                    onClick={() => router.push("/shipping")}
+                  >
+                    Checkout
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         )}

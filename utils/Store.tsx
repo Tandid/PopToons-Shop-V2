@@ -27,6 +27,13 @@ function reducer(state, action) {
         : [...state.cart.cartItems, newItem];
       return { ...state, cart: { ...state.cart, cartItems } };
     }
+    case "CART_REMOVE_ITEM": {
+      //? Return all items that do not equal to the slug of the item to be removed
+      const cartItems = state.cart.cartItems.filter(
+        (item) => item.slug != action.payload.slug
+      );
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
 
     default:
       return state;

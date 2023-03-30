@@ -8,6 +8,7 @@ import { Store } from "../../utils/Store"; //? Provides store access
 
 const ProductScreen: React.FC = (): React.ReactElement => {
   const { state, dispatch } = useContext(Store); //? Provides store access
+  const router = useRouter();
   const { query } = useRouter();
   const { slug } = query;
   const product = products.find((p) => p.slug === slug);
@@ -27,6 +28,7 @@ const ProductScreen: React.FC = (): React.ReactElement => {
 
     //? Updates the state with the new quantity in cart
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+    router.push("/cart");
   };
 
   if (!product) {
