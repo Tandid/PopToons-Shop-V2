@@ -9,15 +9,16 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    //? Add new item to the cart
-    //? If the item already exists in the cart, increase the quantity only
-    //? Else update cart by adding the new item
-
     case "CART_ADD_ITEM": {
+      //? Add new item to the cart
       const newItem = action.payload;
+
+      //? Check if item exists in the cart
       const existItem = state.cart.cartItems.find(
         (item) => item.slug == newItem.slug
       );
+
+      //? If item exists, increase quantity in cart, else add new item to cart
       const cartItems = existItem
         ? state.cart.cartItems.map((item) =>
             item.name === existItem.name ? newItem : item
@@ -25,6 +26,7 @@ function reducer(state, action) {
         : [...state.cart.cartItems, newItem];
       return { ...state, cart: { ...state.cart, cartItems } };
     }
+
     default:
       return state;
   }
