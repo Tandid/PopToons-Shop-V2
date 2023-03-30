@@ -10,3 +10,7 @@ export interface Product {
   countInStock: number;
   description: string;
 }
+
+export interface CartItem extends Product {
+  quantity: number;
+}

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import React, { useContext } from "react";
 import { Store } from "../utils/Store";
-import { Product } from "../utils/data.interface";
+import { CartItem } from "../utils/data.interface"; //TS
 
 type LayoutProps = {
   title?: string;
@@ -38,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({
                 {cart.cartItems.length > 0 && (
                   <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
                     {cart.cartItems.reduce(
-                      (a: number, c: Product) => a + c.quantity,
+                      (a: number, c: CartItem) => a + c.quantity,
                       0
                     )}
                   </span>

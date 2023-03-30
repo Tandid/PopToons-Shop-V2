@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import Layout from "../../components/Layout";
 import products from "../../utils/data";
+import { Product } from "../../utils/data.interface";
 import { Store } from "../../utils/Store"; //? Provides store access
 
 const ProductScreen: React.FC = (): React.ReactElement => {
@@ -11,7 +12,7 @@ const ProductScreen: React.FC = (): React.ReactElement => {
   const router = useRouter();
   const { query } = useRouter();
   const { slug } = query;
-  const product = products.find((p) => p.slug === slug);
+  const product = products.find((p) => p.slug === slug) as Product; //! as Product is TS
 
   const addToCartHandler = () => {
     //? Check if product exists in cart already, if it does, increase quantity by 1

@@ -1,13 +1,22 @@
 import { createContext, useReducer } from "react";
-
-export const Store = createContext();
+import { Product } from "./data.interface"; //TS
+import { State, Action } from "./state.interface"; //TS
 
 //? By default, there are no items in the cart
 const initialState = {
   cart: { cartItems: [] },
 };
 
-function reducer(state, action) {
+//! Was originally const Store = createContext() until I added TS
+export const Store = createContext<{
+  state: State;
+  dispatch: React.Dispatch<Action>;
+}>({
+  state: initialState,
+  dispatch: () => null,
+});
+
+function reducer(state: State, action: Action) {
   switch (action.type) {
     case "CART_ADD_ITEM": {
       //? Add new item to the cart
