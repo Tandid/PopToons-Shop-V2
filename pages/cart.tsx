@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { Product } from "../utils/data.interface";
+import dynamic from "next/dynamic";
 
 const CartScreen: React.FC = (): React.ReactElement => {
   const router = useRouter();
@@ -115,4 +116,4 @@ const CartScreen: React.FC = (): React.ReactElement => {
   );
 };
 
-export default CartScreen;
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

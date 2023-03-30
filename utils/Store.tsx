@@ -1,10 +1,13 @@
 import { createContext, useReducer } from "react";
 import { ReactNode } from "react"; //TS
 import { State, Action } from "./state.interface"; //TS
+import Cookies from "js-cookie";
 
-//? By default, there are no items in the cart
+//? By default, there are no items in the cart but if its stored as a cookie we can retrieve it
 const initialState = {
-  cart: { cartItems: [] },
+  cart: Cookies.get("cart")
+    ? JSON.parse(Cookies.get("cart"))
+    : { cartItems: [] },
 };
 
 //! Was originally const Store = createContext() until I added TS
@@ -37,6 +40,7 @@ function reducer(state: State, action: Action) {
             item.name === existItem.name ? newItem : item
           )
         : [...state.cart.cartItems, newItem];
+      Cookies.set("cart", JSON.stringify({ ...state.cart, cartItems })); // Save state to a converted string which will be stored as a cookie
       return { ...state, cart: { ...state.cart, cartItems } };
     }
     case "CART_REMOVE_ITEM": {
@@ -44,6 +48,7 @@ function reducer(state: State, action: Action) {
       const cartItems = state.cart.cartItems.filter(
         (item) => item.slug != action.payload.slug
       );
+      Cookies.set("cart", JSON.stringify({ ...state.cart, cartItems })); //Save state after removing item and update cookie
       return { ...state, cart: { ...state.cart, cartItems } };
     }
 
