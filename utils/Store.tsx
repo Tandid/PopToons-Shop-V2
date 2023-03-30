@@ -7,7 +7,6 @@ const initialState = {
   cart: { cartItems: [] },
 };
 
-//TODO: Add remove item action type so you can remove item from cart
 function reducer(state, action) {
   switch (action.type) {
     case "CART_ADD_ITEM": {
