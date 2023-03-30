@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import { Product } from "./data.interface"; //TS
+import { ReactNode } from "react"; //TS
 import { State, Action } from "./state.interface"; //TS
 
 //? By default, there are no items in the cart
@@ -15,6 +15,10 @@ export const Store = createContext<{
   state: initialState,
   dispatch: () => null,
 });
+
+interface StoreProviderProps {
+  children: ReactNode;
+}
 
 function reducer(state: State, action: Action) {
   switch (action.type) {
@@ -48,7 +52,7 @@ function reducer(state: State, action: Action) {
   }
 }
 
-export function StoreProvider({ children }) {
+export function StoreProvider({ children }: StoreProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = { state, dispatch };
   return <Store.Provider value={value}>{children}</Store.Provider>;

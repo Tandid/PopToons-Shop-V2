@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { TrashIcon } from "@heroicons/react/24/outline";
+import { Product } from "../utils/data.interface";
 
 const CartScreen: React.FC = (): React.ReactElement => {
   const router = useRouter();
@@ -14,11 +15,11 @@ const CartScreen: React.FC = (): React.ReactElement => {
   } = state;
 
   //? Removes item from cart
-  const removeItemHandler = (item) => {
+  const removeItemHandler = (item: Product) => {
     dispatch({ type: "CART_REMOVE_ITEM", payload: item });
   };
 
-  const updateCartHandler = (item, qty) => {
+  const updateCartHandler = (item: Product, qty: string) => {
     const quantity = Number(qty);
     dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
   };
@@ -69,11 +70,13 @@ const CartScreen: React.FC = (): React.ReactElement => {
                             updateCartHandler(item, e.target.value)
                           }
                         >
-                          {[...Array(item.countInStock).keys()].map((x) => (
-                            <option key={x + 1} value={x + 1}>
-                              {x + 1}
-                            </option>
-                          ))}
+                          {[...Array(item.countInStock).keys()].map(
+                            (x: number) => (
+                              <option key={x + 1} value={x + 1}>
+                                {x + 1}
+                              </option>
+                            )
+                          )}
                         </select>
                       </td>
                       <td className="px-5 text-right">${item.price}</td>
