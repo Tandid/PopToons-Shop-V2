@@ -2,7 +2,12 @@ import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 
-export default function Layout({ title, children }) {
+type Props = {
+  title?: string;
+  children?: React.ReactElement | string;
+};
+
+const Layout: React.FC<Props> = ({ title, children }): React.ReactElement => {
   return (
     <>
       <Head>
@@ -34,4 +39,6 @@ export default function Layout({ title, children }) {
       </div>
     </>
   );
-}
+};
+
+export default Layout;

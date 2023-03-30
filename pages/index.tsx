@@ -1,5 +1,7 @@
 import Layout from "../components/Layout";
 
-export default function Home() {
+const Home: React.FC = (): React.ReactElement => {
   return <Layout title="Home">Home Page</Layout>;
-}
+};
+
+export default Home;
