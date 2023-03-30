@@ -102,7 +102,7 @@ const CartScreen: React.FC = (): React.ReactElement => {
                 <li>
                   <button
                     className="primary-button w-full"
-                    onClick={() => router.push("/shipping")}
+                    onClick={() => router.push("login?redirect=/shipping")} //If logged in, redirect to shipping page
                   >
                     Checkout
                   </button>
