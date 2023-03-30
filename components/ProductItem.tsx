@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
+import { Product } from "../utils/data.interface";
 
-const ProductItem: React.FC = ({ product }): React.ReactElement => {
+interface ProductItemProps {
+  product: Product;
+}
+
+const ProductItem: React.FC<ProductItemProps> = ({
+  product,
+}): React.ReactElement => {
   return (
     <div className="card">
       <Link href={`/product/${product.slug}`}>
