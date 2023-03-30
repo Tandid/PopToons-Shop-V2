@@ -4,10 +4,9 @@ import { State, Action } from "./state.interface"; //TS
 import Cookies from "js-cookie";
 
 //? By default, there are no items in the cart but if its stored as a cookie we can retrieve it
+const cartCookie = Cookies.get("cart");
 const initialState = {
-  cart: Cookies.get("cart")
-    ? JSON.parse(Cookies.get("cart"))
-    : { cartItems: [] },
+  cart: cartCookie ? JSON.parse(cartCookie as string) : { cartItems: [] },
 };
 
 //! Was originally const Store = createContext() until I added TS
