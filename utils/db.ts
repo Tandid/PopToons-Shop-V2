@@ -1,31 +1,36 @@
-import mongoose from "mongoose";
-// import dotenv from "dotenv";
+import mongoose, { Mongoose } from "mongoose";
 
-// dotenv.config();
-// console.log(process.env.MONGODB_URI);
+interface Connection {
+  isConnected: boolean;
+}
 
-const connection = {};
-async function connect() {
+const connection: Connection = {
+  isConnected: false,
+};
+
+async function connect(): Promise<void> {
   if (connection.isConnected) {
     console.log("already connected");
     return;
   }
-  if (mongoose.connection.length > 0) {
-    connection.isConnected = mongoose.connection.readyState;
+  if (mongoose.connection.readyState) {
+    connection.isConnected = mongoose.connection.readyState === 1;
 
-    if (connection.isConnected === 1) {
+    if (connection.isConnected) {
       console.log("use previous connection");
       return;
     }
     await mongoose.disconnect();
   }
 
-  const db = await mongoose.connect(process.env.MONGODB_URI);
+  const db: Mongoose = await mongoose.connect(
+    process.env.MONGODB_URI as string
+  );
   console.log("connected to db");
-  connection.isConnected = db.connection.readyState;
+  connection.isConnected = db.connection.readyState === 1;
 }
 
-async function disconnect() {
+async function disconnect(): Promise<void> {
   if (connection.isConnected) {
     if (process.env.NODE_ENV === "production") {
       await mongoose.disconnect();
