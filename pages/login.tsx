@@ -23,6 +23,7 @@ const LoginScreen: React.FC = (): React.ReactElement => {
   const {
     handleSubmit,
     register,
+    setValue,
     formState: { errors },
   } = useForm();
 
@@ -39,6 +40,11 @@ const LoginScreen: React.FC = (): React.ReactElement => {
     } catch (err) {
       toast.error(getError(err));
     }
+  };
+
+  const handleDemoLogin = async () => {
+    setValue("email", "john@example.com");
+    setValue("password", "123456");
   };
 
   return (
@@ -96,8 +102,13 @@ const LoginScreen: React.FC = (): React.ReactElement => {
           <button className="primary-button">Login</button>
         </div>
         <div className="mb-4">
+          <button className="secondary-button" onClick={handleDemoLogin}>
+            Demo Login
+          </button>
+        </div>
+        <div className="mb-4">
           Don&apos;t have an account? &nbsp;
-          <Link href="/register">Register</Link>
+          <Link href={`/register?redirect=${redirect || "/"}`}>Register</Link>
         </div>
       </form>
     </Layout>
