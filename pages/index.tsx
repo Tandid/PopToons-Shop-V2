@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import Banner from "../components/Banner";
 import Layout from "../components/Layout";
 import ProductItem from "../components/ProductItem";
-import SectionOne from "../components/sectionOne";
+import SectionOne from "../components/SectionOne";
 import SectionTwo from "../components/SectionTwo";
 import Product from "../models/Product";
 import db from "../utils/db";
@@ -28,17 +28,19 @@ const Home: React.FC = ({ products }): React.ReactElement => {
   };
   return (
     <Layout title="Home">
-      <Banner></Banner>
-      <SectionOne></SectionOne>
-      <SectionTwo></SectionTwo>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols3 lg:grid-cols-4">
-        {products.map((product) => (
-          <ProductItem
-            product={product}
-            key={product.slug}
-            addToCartHandler={addToCartHandler}
-          ></ProductItem>
-        ))}
+      <div>
+        <Banner />
+        <SectionOne></SectionOne>
+        <SectionTwo></SectionTwo>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols3 lg:grid-cols-4">
+          {products.map((product) => (
+            <ProductItem
+              product={product}
+              key={product.slug}
+              addToCartHandler={addToCartHandler}
+            ></ProductItem>
+          ))}
+        </div>
       </div>
     </Layout>
   );
