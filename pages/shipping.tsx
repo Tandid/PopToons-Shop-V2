@@ -6,7 +6,7 @@ import Checkout from "../components/Checkout";
 import Layout from "../components/Layout";
 import { Store } from "../utils/Store";
 
-const ShippingScreen = () => {
+const ShippingScreen: React.FC = (): React.ReactElement => {
   const {
     handleSubmit,
     register,
@@ -142,7 +142,7 @@ const ShippingScreen = () => {
             <button
               type="button"
               title="Click to autofill form with sample data."
-              className="primary-button"
+              className="secondary-button"
               onClick={handleAutofill}
             >
               Autofill Form

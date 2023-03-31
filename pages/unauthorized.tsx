@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 
-const Unauthorized = () => {
+const Unauthorized: React.FC = (): React.ReactElement => {
   const router = useRouter();
   const { message } = router.query;
 

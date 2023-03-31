@@ -7,7 +7,7 @@ const cartCookie = Cookies.get("cart");
 const initialState = {
   cart: cartCookie
     ? JSON.parse(cartCookie as string)
-    : { cartItems: [], shippingAddress: {} },
+    : { cartItems: [], shippingAddress: {}, paymentMethod: "" },
 };
 
 //! Was originally const Store = createContext() until I added TS
@@ -74,6 +74,15 @@ function reducer(state: State, action: Action) {
             ...state.cart.shippingAddress,
             ...action.payload,
           },
+        },
+      };
+
+    case "SAVE_PAYMENT_METHOD":
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          paymentMethod: action.payload,
         },
       };
 
