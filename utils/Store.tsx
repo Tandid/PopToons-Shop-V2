@@ -10,7 +10,7 @@ const initialState = {
     : { cartItems: [], shippingAddress: {}, paymentMethod: "" },
 };
 
-//! Was originally const Store = createContext() until I added TS
+// Was originally const Store = createContext() until I added TS
 export const Store = createContext<{
   state: State;
   dispatch: React.Dispatch<Action>;
