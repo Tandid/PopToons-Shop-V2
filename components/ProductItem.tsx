@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import { Product } from "../utils/data.interface";
@@ -13,7 +14,11 @@ const ProductItem: React.FC<ProductItemProps> = ({
   addToCartHandler,
 }): React.ReactElement => {
   return (
-    <div className="card">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="card"
+    >
       <Link href={`/product/${product.slug}`}>
         <img
           src={product.image}
@@ -28,15 +33,16 @@ const ProductItem: React.FC<ProductItemProps> = ({
         </Link>
         <p className="mb-2">{product.brand}</p>
         <p>${product.price}</p>
-        <button
+        <motion.button
+          whileHover={{ scale: 1.05 }}
           className="primary-button"
           type="button"
           onClick={() => addToCartHandler(product)}
         >
           Add to Cart
-        </button>
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

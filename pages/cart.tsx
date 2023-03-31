@@ -1,5 +1,6 @@
 import { TrashIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,7 +35,10 @@ const CartScreen: React.FC = (): React.ReactElement => {
 
   return (
     <Layout title="Shopping Cart">
-      <div>
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+      >
         <h1 className="mb-4 text-xl">Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <div>
@@ -118,7 +122,7 @@ const CartScreen: React.FC = (): React.ReactElement => {
             </div>
           </div>
         )}
-      </div>
+      </motion.div>
     </Layout>
   );
 };

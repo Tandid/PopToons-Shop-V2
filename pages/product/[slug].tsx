@@ -1,4 +1,5 @@
 import axios from "axios";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -38,7 +39,12 @@ const ProductScreen: React.FC = (props): React.ReactElement => {
 
   return (
     <Layout title={product.name}>
-      <div className="flex">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        // transition={{ duration: 0.5 }}
+        className="flex"
+      >
         {/* //* Back to Products Button */}
         <div className="py-2">
           <Link href="/"> Back to Products </Link>
@@ -91,7 +97,7 @@ const ProductScreen: React.FC = (props): React.ReactElement => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Layout>
   );
 };
