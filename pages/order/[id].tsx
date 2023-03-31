@@ -79,7 +79,7 @@ const OrderScreen: React.FC = (): React.ReactElement => {
                     Delivered at {deliveredAt}
                   </div>
                 ) : (
-                  <div className="alert-error">Not delivered</div>
+                  <div className="alert-error">Not Delivered</div>
                 )}
               </div>
 
@@ -89,7 +89,7 @@ const OrderScreen: React.FC = (): React.ReactElement => {
                 {isPaid ? (
                   <div className="alert-success">Paid at {paidAt}</div>
                 ) : (
-                  <div className="alert-error">Not paid</div>
+                  <div className="alert-error">Not Paid</div>
                 )}
               </div>
 
