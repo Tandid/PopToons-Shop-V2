@@ -3,6 +3,9 @@ import Link from "next/link";
 import React, { useContext, useState, useEffect } from "react";
 import { Store } from "../utils/Store";
 import { CartItem } from "../utils/data.interface"; //TS
+import { useSession } from "next-auth/react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type LayoutProps = {
   title?: string;
@@ -13,6 +16,7 @@ const Layout: React.FC<LayoutProps> = ({
   title,
   children,
 }): React.ReactElement => {
+  const { status, data: session } = useSession();
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -30,6 +34,7 @@ const Layout: React.FC<LayoutProps> = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between">
         <header>
           <nav className="flex h-12 justify-between shadow-md items-center px-4">
@@ -47,10 +52,16 @@ const Layout: React.FC<LayoutProps> = ({
                   </span>
                 )}
               </Link>
-              {/* //? Login Button */}
-              <Link className="p-2" href="/login">
-                Login
-              </Link>
+              {/* //? If session exists, show username, else show login */}
+              {status === "loading" ? (
+                "Loading"
+              ) : session?.user ? (
+                session.user.name
+              ) : (
+                <Link className="p-2" href="/login">
+                  Login
+                </Link>
+              )}
             </div>
           </nav>
         </header>
