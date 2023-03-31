@@ -1,9 +1,11 @@
 import { TrashIcon } from "@heroicons/react/24/outline";
+import axios from "axios";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import Layout from "../components/Layout";
 import { Product } from "../utils/data.interface";
 import { Store } from "../utils/Store";
@@ -20,9 +22,14 @@ const CartScreen: React.FC = (): React.ReactElement => {
     dispatch({ type: "CART_REMOVE_ITEM", payload: item });
   };
 
-  const updateCartHandler = (item: Product, qty: string) => {
+  const updateCartHandler = async (item: Product, qty: string) => {
     const quantity = Number(qty);
+    const { data } = await axios.get(`/api/products/${item._id}`);
+    if (data.countInStock < quantity) {
+      return toast.error("Sorry. Product is out of stock");
+    }
     dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
+    toast.success("Product updated in the cart");
   };
 
   return (

@@ -9,6 +9,7 @@ interface ProductItemProps {
 
 const ProductItem: React.FC<ProductItemProps> = ({
   product,
+  addToCartHandler,
 }): React.ReactElement => {
   return (
     <div className="card">
@@ -26,7 +27,11 @@ const ProductItem: React.FC<ProductItemProps> = ({
         </Link>
         <p className="mb-2">{product.brand}</p>
         <p>${product.price}</p>
-        <button className="primary-button" type="button">
+        <button
+          className="primary-button"
+          type="button"
+          onClick={() => addToCartHandler(product)}
+        >
           Add to Cart
         </button>
       </div>
