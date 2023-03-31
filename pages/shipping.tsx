@@ -50,7 +50,7 @@ const ShippingScreen: React.FC = (): React.ReactElement => {
     router.push("/payment");
   };
 
-  const handleAutofill = (e) => {
+  const handleAutofill = () => {
     setValue("fullName", "John Doe");
     setValue("address", "123 Street");
     setValue("city", "City");
@@ -63,7 +63,7 @@ const ShippingScreen: React.FC = (): React.ReactElement => {
       <div>
         <Checkout activeStep={1} />
         <form
-          className="mx-auto max-w-screen-md"
+          className="max-w-screen-md mx-auto"
           onSubmit={handleSubmit(submitHandler)}
         >
           <h1 className="mb-4 text-xl">Shipping Address</h1>
@@ -137,7 +137,7 @@ const ShippingScreen: React.FC = (): React.ReactElement => {
               <div className="text-red-500 ">{errors.country.message}</div>
             )}
           </div>
-          <div className="mb-4 flex justify-between">
+          <div className="flex justify-between mb-4">
             <button className="primary-button">Next</button>
             <button
               type="button"

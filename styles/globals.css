@@ -101,29 +101,29 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-a {
+/* a {
   @apply text-blue-600 hover:text-blue-800;
-}
+} */
 
 .card {
-  @apply mb-5 block rounded-lg border border-gray-200 shadow-md;
+  @apply block mb-5 border border-gray-200 rounded-lg shadow-md;
 }
 
 .primary-button {
-  @apply rounded bg-red-500 py-2 px-4 shadow outline-none hover:bg-red-600 active:bg-red-700;
+  @apply px-4 py-2 bg-red-500 rounded shadow outline-none hover:bg-red-600 active:bg-red-700;
 }
 .secondary-button {
-  @apply rounded bg-blue-300 py-2 px-4 shadow outline-none hover:bg-blue-500 active:bg-blue-500;
+  @apply px-4 py-2 bg-blue-300 rounded shadow outline-none hover:bg-blue-500 active:bg-blue-500;
 }
 
 .default-button {
-  @apply rounded bg-gray-100 py-2  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
+  @apply px-4 py-2 text-black bg-gray-100 rounded shadow outline-none hover:bg-gray-200 active:bg-gray-300;
 }
 
 input,
 select,
 textarea {
-  @apply rounded border p-2 outline-none ring-indigo-300 focus:ring;
+  @apply p-2 border rounded outline-none ring-indigo-300 focus:ring;
 }
 
 .dropdown-link {
@@ -131,11 +131,11 @@ textarea {
 }
 
 .alert-error {
-  @apply my-3 rounded-lg bg-red-100 p-3 text-red-700;
+  @apply p-3 my-3 text-red-700 bg-red-100 rounded-lg;
 }
 
 .alert-success {
-  @apply my-3 rounded-lg bg-green-100 p-3 text-green-700;
+  @apply p-3 my-3 text-green-700 bg-green-100 rounded-lg;
 }
 
 @media (prefers-color-scheme: dark) {

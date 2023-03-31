@@ -2,6 +2,7 @@ import { Menu } from "@headlessui/react";
 import Cookies from "js-cookie";
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
@@ -58,16 +59,28 @@ const Layout: React.FC<LayoutProps> = ({
           <nav className="flex items-center justify-between h-12 px-4 bg-red-500 shadow-md">
             {/* //? Home Button */}
             <Link href="/">
-              <h1 className="text-lg font-bold">Poptoons</h1>
+              <Image
+                src={`/images/logo.png`}
+                alt={"Pop Toons Shop"}
+                width={60}
+                height={60}
+                className="bg-red-500"
+              ></Image>
             </Link>
 
             <div>
               {/* //? Shop */}
-              <Link className="p-2 font-bold text-large" href="/search">
+              <Link
+                className="p-2 font-bold text-white bg-red-500 text-large hover:text-black"
+                href="/search"
+              >
                 Shop
               </Link>
               {/* //? Badge */}
-              <Link className="p-2 font-bold text-large" href="/cart">
+              <Link
+                className="p-2 font-bold text-white bg-red-500 text-large hover:text-black"
+                href="/cart"
+              >
                 Cart
                 {cartItemsCount > 0 && (
                   <span className="px-2 py-1 ml-1 text-xs font-bold text-white bg-red-600 rounded-full">
@@ -79,11 +92,8 @@ const Layout: React.FC<LayoutProps> = ({
               {status === "loading" ? (
                 "Loading"
               ) : session?.user ? (
-                <Menu
-                  as="div"
-                  className="relative inline-block font-bold text-large"
-                >
-                  <Menu.Button className="text-blue-600">
+                <Menu as="div" className="relative inline-block font-bold">
+                  <Menu.Button className="px-2 text-gray-100 bg-red-500 hover:text-black">
                     {session.user.name}
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg ">
@@ -109,7 +119,10 @@ const Layout: React.FC<LayoutProps> = ({
                   </Menu.Items>
                 </Menu>
               ) : (
-                <Link className="p-2 font-bold text-large" href="/login">
+                <Link
+                  className="p-2 font-bold text-white bg-red-500 text-large"
+                  href="/login"
+                >
                   Login
                 </Link>
               )}
