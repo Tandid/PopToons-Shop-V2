@@ -1,4 +1,9 @@
 import mongoose from "mongoose";
+// import dotenv from "dotenv";
+
+// dotenv.config();
+// console.log(process.env.MONGODB_URI);
+
 const connection = {};
 async function connect() {
   if (connection.isConnected) {
@@ -6,7 +11,7 @@ async function connect() {
     return;
   }
   if (mongoose.connection.length > 0) {
-    connection.isConnected = mongoose.connection[0].readyState;
+    connection.isConnected = mongoose.connection.readyState;
 
     if (connection.isConnected === 1) {
       console.log("use previous connection");
@@ -14,11 +19,10 @@ async function connect() {
     }
     await mongoose.disconnect();
   }
-  //TODO need to bring in dotenv and fix the MONGO URI
-  //   console.log(MONGODB_URI);
+
   const db = await mongoose.connect(process.env.MONGODB_URI);
   console.log("connected to db");
-  connection.isConnected = db.connection[0].readyState;
+  connection.isConnected = db.connection.readyState;
 }
 
 async function disconnect() {
