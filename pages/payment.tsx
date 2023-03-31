@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
@@ -40,9 +41,12 @@ const PaymentScreen: React.FC = (): React.ReactElement => {
 
   return (
     <Layout title="Payment Method">
-      <div>
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+      >
         <Checkout activeStep={2} />
-        <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
+        <form className="max-w-screen-md mx-auto" onSubmit={submitHandler}>
           <h1 className="mb-4 text-xl">Payment Method</h1>
           {["PayPal", "Stripe", "CashOnDelivery"].map((payment) => (
             <div key={payment} className="mb-4">
@@ -60,7 +64,7 @@ const PaymentScreen: React.FC = (): React.ReactElement => {
               </label>
             </div>
           ))}
-          <div className="mb-4 flex justify-between">
+          <div className="flex justify-between mb-4">
             <button
               onClick={() => router.push("/shipping")}
               type="button"
@@ -71,7 +75,7 @@ const PaymentScreen: React.FC = (): React.ReactElement => {
             <button className="primary-button">Next</button>
           </div>
         </form>
-      </div>
+      </motion.div>
     </Layout>
   );
 };

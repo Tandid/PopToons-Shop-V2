@@ -1,5 +1,6 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { toast } from "react-toastify";
@@ -9,7 +10,7 @@ import Product from "../models/Product";
 import db from "../utils/db";
 import { Store } from "../utils/Store";
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 9;
 
 const prices = [
   {
@@ -103,7 +104,11 @@ const Search: React.FC = (props): React.ReactElement => {
   };
   return (
     <Layout title="search">
-      <div className="grid md:grid-cols-4 md:gap-5">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="grid md:grid-cols-4 md:gap-5"
+      >
         <div>
           <div className="my-3">
             <h2>Categories</h2>
@@ -216,7 +221,7 @@ const Search: React.FC = (props): React.ReactElement => {
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Layout>
   );
 };

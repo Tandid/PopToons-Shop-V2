@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
@@ -60,7 +61,10 @@ const ShippingScreen: React.FC = (): React.ReactElement => {
 
   return (
     <Layout title="Shipping Address">
-      <div>
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+      >
         <Checkout activeStep={1} />
         <form
           className="max-w-screen-md mx-auto"
@@ -149,7 +153,7 @@ const ShippingScreen: React.FC = (): React.ReactElement => {
             </button>
           </div>
         </form>
-      </div>
+      </motion.div>
     </Layout>
   );
 };
