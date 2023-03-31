@@ -1,6 +1,12 @@
 import React from "react";
 
-const Checkout: React.FC = ({ activeStep = 0 }): React.ReactElement => {
+interface CheckoutProps {
+  activeStep?: number;
+}
+
+const Checkout: React.FC<CheckoutProps> = ({
+  activeStep = 0,
+}): React.ReactElement => {
   return (
     <div className="mb-5 flex flex-wrap">
       {["User Login", "Shipping Address", "Payment Method", "Place Order"].map(

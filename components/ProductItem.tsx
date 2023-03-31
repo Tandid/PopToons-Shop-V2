@@ -5,6 +5,7 @@ import { Product } from "../utils/data.interface";
 
 interface ProductItemProps {
   product: Product;
+  addToCartHandler: (product: Product) => void;
 }
 
 const ProductItem: React.FC<ProductItemProps> = ({

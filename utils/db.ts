@@ -1,5 +1,12 @@
 import mongoose, { Mongoose } from "mongoose";
 
+interface IDoc {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
+  [key: string]: any;
+}
+
 interface Connection {
   isConnected: boolean;
 }
@@ -41,11 +48,13 @@ async function disconnect(): Promise<void> {
   }
 }
 
-function convertDocToObj(doc) {
-  doc._id = doc._id.toString();
-  doc.createdAt = doc.createdAt.toString();
-  doc.updatedAt = doc.updatedAt.toString();
-  return doc;
+//! In this updated version, we create a shallow copy of the original doc object as newObj. Then, we modify the properties of newObj and return it.
+function convertDocToObj(doc: IDoc): IDoc {
+  const newObj: any = { ...doc }; // Create a shallow copy of the original object
+  newObj._id = newObj._id.toString();
+  newObj.createdAt = newObj.createdAt.toString();
+  newObj.updatedAt = newObj.updatedAt.toString();
+  return newObj;
 }
 
 const db = { connect, disconnect, convertDocToObj };
