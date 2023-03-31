@@ -76,4 +76,6 @@ const PaymentScreen: React.FC = (): React.ReactElement => {
   );
 };
 
+PaymentScreen.auth = true;
+
 export default PaymentScreen;

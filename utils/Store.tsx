@@ -86,6 +86,9 @@ function reducer(state: State, action: Action) {
         },
       };
 
+    case "CART_CLEAR_ITEMS":
+      return { ...state, cart: { ...state.cart, cartItems: [] } };
+
     default:
       return state;
   }
