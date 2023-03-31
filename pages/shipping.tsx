@@ -50,6 +50,14 @@ const ShippingScreen = () => {
     router.push("/payment");
   };
 
+  const handleAutofill = (e) => {
+    setValue("fullName", "John Doe");
+    setValue("address", "123 Street");
+    setValue("city", "City");
+    setValue("postalCode", "11111");
+    setValue("country", "US");
+  };
+
   return (
     <Layout title="Shipping Address">
       <div>
@@ -131,6 +139,14 @@ const ShippingScreen = () => {
           </div>
           <div className="mb-4 flex justify-between">
             <button className="primary-button">Next</button>
+            <button
+              type="button"
+              title="Click to autofill form with sample data."
+              className="primary-button"
+              onClick={handleAutofill}
+            >
+              Autofill Form
+            </button>
           </div>
         </form>
       </div>
