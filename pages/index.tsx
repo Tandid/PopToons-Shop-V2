@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useContext } from "react";
 import { toast } from "react-toastify";
+import Banner from "../components/Banner";
 import Layout from "../components/Layout";
 import ProductItem from "../components/ProductItem";
+import SectionOne from "../components/sectionOne";
+import SectionTwo from "../components/SectionTwo";
 import Product from "../models/Product";
 import db from "../utils/db";
 import { Store } from "../utils/Store";
@@ -25,6 +28,9 @@ const Home: React.FC = ({ products }): React.ReactElement => {
   };
   return (
     <Layout title="Home">
+      <Banner></Banner>
+      <SectionOne></SectionOne>
+      <SectionTwo></SectionTwo>
       <div className="grid grid-cols-1 gap-4 md:grid-cols3 lg:grid-cols-4">
         {products.map((product) => (
           <ProductItem
