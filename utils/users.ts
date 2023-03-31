@@ -1,5 +1,5 @@
-import { User } from "./data.interface";
 import bcrypt from "bcryptjs";
+import { User } from "./data.interface";
 
 const users: User[] = [
   {

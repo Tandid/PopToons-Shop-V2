@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
-import products from "../utils/products";
 import ProductItem from "../components/ProductItem";
+import products from "../utils/products";
 
 const Home: React.FC = (): React.ReactElement => {
   return (

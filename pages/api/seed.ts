@@ -1,5 +1,5 @@
-import db from "../../utils/db";
 import User from "../../models/User";
+import db from "../../utils/db";
 import users from "../../utils/users";
 
 const handler = async (req, res) => {

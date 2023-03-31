@@ -1,14 +1,14 @@
+import { Menu } from "@headlessui/react";
+import Cookies from "js-cookie";
+import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
-import React, { useContext, useState, useEffect } from "react";
-import { Store } from "../utils/Store";
-import { CartItem } from "../utils/data.interface"; //TS
-import { signOut, useSession } from "next-auth/react";
-import Cookies from "js-cookie";
+import React, { useContext, useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { CartItem } from "../utils/data.interface"; //TS
+import { Store } from "../utils/Store";
 import Dropdown from "./Dropdown";
-import { Menu } from "@headlessui/react";
 
 type LayoutProps = {
   title?: string;
@@ -81,13 +81,13 @@ const Layout: React.FC<LayoutProps> = ({
                       </Dropdown>
                     </Menu.Item>
                     <Menu.Item>
-                      <a
+                      <Link
                         className="dropdown-link"
                         href="#"
                         onClick={logoutClickHandler}
                       >
                         Logout
-                      </a>
+                      </Link>
                     </Menu.Item>
                   </Menu.Items>
                 </Menu>

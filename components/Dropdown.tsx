@@ -1,6 +1,5 @@
 import Link from "next/link";
-import React from "react";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 interface DropdownProps {
   children: ReactNode;

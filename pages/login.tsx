@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
 import { signIn, useSession } from "next-auth/react";
-import Layout from "../components/Layout";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { getError } from "../utils/error";
-import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import Layout from "../components/Layout";
+import { getError } from "../utils/error";
 
 const LoginScreen: React.FC = (): React.ReactElement => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z0-9-.]+$/i;

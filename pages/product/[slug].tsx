@@ -1,10 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import Layout from "../../components/Layout";
-import products from "../../utils/products";
 import { Product } from "../../utils/data.interface";
+import products from "../../utils/products";
 import { Store } from "../../utils/Store"; //? Provides store access
 
 const ProductScreen: React.FC = (): React.ReactElement => {

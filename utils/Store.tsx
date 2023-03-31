@@ -1,7 +1,6 @@
-import { createContext, useReducer } from "react";
-import { ReactNode } from "react"; //TS
-import { State, Action } from "./state.interface"; //TS
 import Cookies from "js-cookie";
+import { createContext, ReactNode, useReducer } from "react";
+import { Action, State } from "./state.interface"; //TS
 
 //? By default, there are no items in the cart but if its stored as a cookie we can retrieve it
 const cartCookie = Cookies.get("cart");

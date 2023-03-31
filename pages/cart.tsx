@@ -1,12 +1,12 @@
+import { TrashIcon } from "@heroicons/react/24/outline";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import Layout from "../components/Layout";
-import { Store } from "../utils/Store";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { TrashIcon } from "@heroicons/react/24/outline";
 import { Product } from "../utils/data.interface";
-import dynamic from "next/dynamic";
+import { Store } from "../utils/Store";
 
 const CartScreen: React.FC = (): React.ReactElement => {
   const router = useRouter();
