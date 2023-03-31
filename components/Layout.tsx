@@ -96,7 +96,7 @@ const Layout: React.FC<LayoutProps> = ({
                   <Menu.Button className="px-2 text-gray-100 bg-red-500 hover:text-black">
                     {session.user.name}
                   </Menu.Button>
-                  <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg ">
+                  <Menu.Items className="absolute right-0 z-10 w-56 origin-top-right bg-white shadow-lg ">
                     <Menu.Item>
                       <Dropdown className="dropdown-link" href="/profile">
                         Profile
