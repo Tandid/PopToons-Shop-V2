@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import Layout from "../../components/Layout";
-import products from "../../utils/data";
+import products from "../../utils/products";
 import { Product } from "../../utils/data.interface";
 import { Store } from "../../utils/Store"; //? Provides store access
 

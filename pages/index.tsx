@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import products from "../utils/data";
+import products from "../utils/products";
 import ProductItem from "../components/ProductItem";
 
 const Home: React.FC = (): React.ReactElement => {
