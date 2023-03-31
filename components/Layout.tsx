@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -35,6 +36,14 @@ const Layout: React.FC<LayoutProps> = ({
     signOut({ callbackUrl: "/login" });
   };
 
+  const [query, setQuery] = useState("");
+
+  const router = useRouter();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    router.push(`/search?query=${query}`);
+  };
+
   return (
     <>
       <Head>
@@ -44,19 +53,24 @@ const Layout: React.FC<LayoutProps> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ToastContainer position="bottom-center" limit={1} />
-      <div className="flex min-h-screen flex-col justify-between">
+      <div className="flex flex-col justify-between min-h-screen">
         <header>
-          <nav className="flex h-12 justify-between shadow-md items-center px-4">
+          <nav className="flex items-center justify-between h-12 px-4 bg-red-500 shadow-md">
             {/* //? Home Button */}
             <Link href="/">
               <h1 className="text-lg font-bold">Poptoons</h1>
             </Link>
+
             <div>
+              {/* //? Shop */}
+              <Link className="p-2 font-bold text-large" href="/search">
+                Shop
+              </Link>
               {/* //? Badge */}
-              <Link className="p-2" href="/cart">
+              <Link className="p-2 font-bold text-large" href="/cart">
                 Cart
                 {cartItemsCount > 0 && (
-                  <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                  <span className="px-2 py-1 ml-1 text-xs font-bold text-white bg-red-600 rounded-full">
                     {cartItemsCount}
                   </span>
                 )}
@@ -65,11 +79,14 @@ const Layout: React.FC<LayoutProps> = ({
               {status === "loading" ? (
                 "Loading"
               ) : session?.user ? (
-                <Menu as="div" className="relative inline-block">
+                <Menu
+                  as="div"
+                  className="relative inline-block font-bold text-large"
+                >
                   <Menu.Button className="text-blue-600">
                     {session.user.name}
                   </Menu.Button>
-                  <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">
+                  <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg ">
                     <Menu.Item>
                       <Dropdown className="dropdown-link" href="/profile">
                         Profile
@@ -92,15 +109,34 @@ const Layout: React.FC<LayoutProps> = ({
                   </Menu.Items>
                 </Menu>
               ) : (
-                <Link className="p-2" href="/login">
+                <Link className="p-2 font-bold text-large" href="/login">
                   Login
                 </Link>
               )}
             </div>
           </nav>
         </header>
-        <main className="container m-auto mt-4 px-4">{children}</main>
-        <footer className="flex justify-center h-10 items-center shadow-inner">
+        {/* //? Search Button */}
+        <form
+          onSubmit={submitHandler}
+          className="justify-center hidden w-full p-2 mx-auto bg-gray-100 md:flex"
+        >
+          <input
+            onChange={(e) => setQuery(e.target.value)}
+            type="text"
+            className="p-1 text-sm rounded-tr-none rounded-br-none focus:ring-0"
+            placeholder="Search products"
+          />
+          <button
+            className="p-1 text-sm rounded rounded-tl-none rounded-bl-none bg-amber-300 dark:text-black"
+            type="submit"
+            id="button-addon2"
+          >
+            Search
+          </button>
+        </form>
+        <main className="container px-4 m-auto mt-4">{children}</main>
+        <footer className="flex items-center justify-center h-10 shadow-inner">
           Copyright @ 2023 Poptoons Shop
         </footer>
       </div>
