@@ -15,6 +15,10 @@ export interface CartItem extends Product {
   quantity: number;
 }
 
+// export interface Shipping extends Product {
+//   address: string;
+// }
+
 export interface User {
   name: string;
   email: string;

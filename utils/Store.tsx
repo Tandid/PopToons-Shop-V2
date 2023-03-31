@@ -5,7 +5,9 @@ import { Action, State } from "./state.interface"; //TS
 //? By default, there are no items in the cart but if its stored as a cookie we can retrieve it
 const cartCookie = Cookies.get("cart");
 const initialState = {
-  cart: cartCookie ? JSON.parse(cartCookie as string) : { cartItems: [] },
+  cart: cartCookie
+    ? JSON.parse(cartCookie as string)
+    : { cartItems: [], shippingAddress: {} },
 };
 
 //! Was originally const Store = createContext() until I added TS
@@ -58,6 +60,20 @@ function reducer(state: State, action: Action) {
           cartItems: [],
           shippingAddress: { location: {} },
           paymentMethod: "",
+        },
+      };
+
+    //? Saves Shipping Address
+    //TODO fix shipping address Type Declaration
+    case "SAVE_SHIPPING_ADDRESS":
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          shippingAddress: {
+            ...state.cart.shippingAddress,
+            ...action.payload,
+          },
         },
       };
 
