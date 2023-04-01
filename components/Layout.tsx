@@ -107,6 +107,16 @@ const Layout: React.FC<LayoutProps> = ({
                         Order History
                       </Dropdown>
                     </Menu.Item>
+                    {session.user.isAdmin && (
+                      <Menu.Item>
+                        <Dropdown
+                          className="dropdown-link"
+                          href="/admin/dashboard"
+                        >
+                          Admin Dashboard
+                        </Dropdown>
+                      </Menu.Item>
+                    )}
                     <Menu.Item>
                       <Link
                         className="dropdown-link"
