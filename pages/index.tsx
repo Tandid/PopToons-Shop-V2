@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { toast } from "react-toastify";
 import Banner from "../components/Banner";
 import Layout from "../components/Layout";
-import ProductItem from "../components/ProductItem";
 import SectionOne from "../components/SectionOne";
+import SectionThree from "../components/SectionThree";
 import SectionTwo from "../components/SectionTwo";
 import Product from "../models/Product";
 import db from "../utils/db";
@@ -31,8 +31,14 @@ const Home: React.FC = ({ products }): React.ReactElement => {
       <div>
         <Banner />
         <SectionOne></SectionOne>
-        <SectionTwo></SectionTwo>
         <div>
+          {/* <h1 className="text-bold text-large text-[50px] text-center">
+            Featured Collections
+          </h1> */}
+          <SectionTwo products={products}></SectionTwo>
+          <SectionThree products={products}></SectionThree>
+        </div>
+        {/* <div>
           {products.map((product) => (
             <ProductItem
               product={product}
@@ -40,7 +46,7 @@ const Home: React.FC = ({ products }): React.ReactElement => {
               addToCartHandler={addToCartHandler}
             ></ProductItem>
           ))}
-        </div>
+        </div> */}
       </div>
     </Layout>
   );

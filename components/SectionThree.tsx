@@ -7,7 +7,7 @@ import { fadeIn, staggerContainer } from "../utils/motion";
 import { Store } from "../utils/Store";
 import ProductItem from "./ProductItem";
 
-const SectionTwo: React.FC = ({ products }): React.ReactElement => {
+const SectionThree: React.FC = ({ products }): React.ReactElement => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -26,7 +26,7 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
   return (
     <div className="flex flex-col items-center py-10">
       <Image
-        src={"/images/aot-logo.jpeg"}
+        src={"/images/naruto-logo.png"}
         alt={"AOTlogo"}
         width={400}
         height={0}
@@ -39,25 +39,13 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
         viewport={{ once: false, amount: 0.25 }}
         className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row gap-8"
       >
-        <motion.div
-          variants={fadeIn("left", "tween", 0, 1)}
-          className="flex items-center justify-center"
-        >
-          <Image
-            src={"/images/aot-bg.png"}
-            alt={"AOT"}
-            width={600}
-            height={0}
-          />
-        </motion.div>
-
-        <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-3">
           {products
-            .filter((x) => x.category === "KH")
-            .slice(0, 4)
+            .filter((x) => x.category === "shonen")
+            .slice(0, 3)
             .map((product, idx) => (
               <motion.div
-                variants={fadeIn("left", "spring", 1 + idx * 0.3, 1.5)}
+                variants={fadeIn("right", "spring", 1 + idx * 0.3, 1.5)}
                 key={idx}
               >
                 <ProductItem
@@ -68,9 +56,20 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
               </motion.div>
             ))}
         </div>
+        <motion.div
+          variants={fadeIn("right", "tween", 0, 1)}
+          className="flex items-center justify-center"
+        >
+          <Image
+            src={"/images/aot-bg.png"}
+            alt={"AOT"}
+            width={600}
+            height={0}
+          />
+        </motion.div>
       </motion.div>
     </div>
   );
 };
 
-export default SectionTwo;
+export default SectionThree;

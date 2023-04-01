@@ -106,7 +106,7 @@ body {
 } */
 
 .card {
-  @apply block mb-5 border border-gray-200 rounded-lg shadow-md;
+  @apply block mb-2 border border-gray-200 rounded-lg shadow-md;
 }
 
 .primary-button {

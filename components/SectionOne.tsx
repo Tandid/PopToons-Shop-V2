@@ -33,11 +33,14 @@ const SectionOne: React.FC = (): React.ReactElement => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
-      className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row gap-8"
+      className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row py-10"
     >
       <div className="flex flex-row items-center justify-around">
         {logos.map((logo, idx) => (
-          <motion.div variants={fadeIn("up", "spring", 0.5 + idx * 0.3, 1.5)}>
+          <motion.div
+            variants={fadeIn("up", "spring", 0.5 + idx * 0.3, 1.5)}
+            key={idx}
+          >
             <Image
               src={logo.src}
               alt={logo.alt}

@@ -36,7 +36,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
         <p>${product.price}</p>
       </div>
 
-      <div class="flex justify-around p-2">
+      <div className="flex justify-around p-2">
         <motion.button
           whileHover={{ scale: 1.05 }}
           className="primary-button"
