@@ -3,6 +3,7 @@ import { SessionProvider, useSession } from "next-auth/react"; //Helps with next
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import "../styles/globals.css";
+import { StoreProvider } from "../utils/Store";
 
 const App: React.FC<AppProps> = ({
   Component,
@@ -10,15 +11,17 @@ const App: React.FC<AppProps> = ({
 }: AppProps) => {
   return (
     <SessionProvider session={session}>
-      <PayPalScriptProvider deferLoading={true}>
-        {Component.auth ? (
-          <Auth>
+      <StoreProvider>
+        <PayPalScriptProvider deferLoading={true}>
+          {Component.auth ? (
+            <Auth>
+              <Component {...pageProps} />
+            </Auth>
+          ) : (
             <Component {...pageProps} />
-          </Auth>
-        ) : (
-          <Component {...pageProps} />
-        )}
-      </PayPalScriptProvider>
+          )}
+        </PayPalScriptProvider>
+      </StoreProvider>
     </SessionProvider>
   );
 };
