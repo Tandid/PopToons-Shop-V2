@@ -1,5 +1,6 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useReducer } from "react";
 import Layout from "../../components/Layout";
@@ -58,7 +59,13 @@ const AdminProductsScreen = () => {
             </li>
           </ul>
         </div>
-        <div className="overflow-x-auto md:col-span-3">
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "tween", duration: 0.5, delay: 0.5 }}
+          className="overflow-x-auto md:col-span-3"
+        >
           <h1 className="py-4 text-xl font-bold">Products</h1>
           {loading ? (
             <div>Loading...</div>
@@ -106,7 +113,7 @@ const AdminProductsScreen = () => {
               </table>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </Layout>
   );

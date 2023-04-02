@@ -120,7 +120,7 @@ const AdminProductEditScreen: React.FC = (): React.ReactElement => {
               className="max-w-screen-md mx-auto"
               onSubmit={handleSubmit(submitHandler)}
             >
-              <h1 className="mb-4 text-xl">{`Edit Product ${productId}`}</h1>
+              <h1 className="py-4 text-xl font-bold">{`Edit Product: #${productId}`}</h1>
               <div className="mb-4">
                 <label htmlFor="name">Name</label>
                 <input
@@ -165,7 +165,7 @@ const AdminProductEditScreen: React.FC = (): React.ReactElement => {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="image">image</label>
+                <label htmlFor="image">Image</label>
                 <input
                   type="text"
                   className="w-full"
@@ -179,7 +179,7 @@ const AdminProductEditScreen: React.FC = (): React.ReactElement => {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="category">category</label>
+                <label htmlFor="category">Category</label>
                 <input
                   type="text"
                   className="w-full"
@@ -193,7 +193,7 @@ const AdminProductEditScreen: React.FC = (): React.ReactElement => {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="brand">brand</label>
+                <label htmlFor="brand">Brand</label>
                 <input
                   type="text"
                   className="w-full"
@@ -207,7 +207,7 @@ const AdminProductEditScreen: React.FC = (): React.ReactElement => {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="countInStock">countInStock</label>
+                <label htmlFor="countInStock">Stock Quantity</label>
                 <input
                   type="text"
                   className="w-full"
@@ -223,7 +223,7 @@ const AdminProductEditScreen: React.FC = (): React.ReactElement => {
                 )}
               </div>
               <div className="mb-4">
-                <label htmlFor="countInStock">description</label>
+                <label htmlFor="countInStock">Description</label>
                 <input
                   type="text"
                   className="w-full"
@@ -243,8 +243,10 @@ const AdminProductEditScreen: React.FC = (): React.ReactElement => {
                   {loadingUpdate ? "Loading" : "Update"}
                 </button>
               </div>
-              <div className="mb-4">
-                <Link href={`/admin/products`}>Back</Link>
+              <div className="py-2 text-gray-400">
+                <Link className=" hover:text-gray-500" href="/admin/products">
+                  Back to Manage Products
+                </Link>
               </div>
             </form>
           )}

@@ -1,5 +1,6 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
@@ -89,7 +90,13 @@ const AdminUsersScreen: React.FC = (): React.ReactElement => {
             </li>
           </ul>
         </div>
-        <div className="overflow-x-auto md:col-span-3">
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "tween", duration: 0.5, delay: 0.5 }}
+          className="overflow-x-auto md:col-span-3"
+        >
           <h1 className="py-4 text-xl font-bold">Users</h1>
           {loadingDelete && <div>Deleting...</div>}
           {loading ? (
@@ -137,7 +144,7 @@ const AdminUsersScreen: React.FC = (): React.ReactElement => {
               </table>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </Layout>
   );
