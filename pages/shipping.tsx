@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Cookies from "js-cookie";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -64,13 +65,14 @@ const ShippingScreen: React.FC = (): React.ReactElement => {
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "tween", duration: 0.5 }}
       >
         <Checkout activeStep={1} />
         <form
           className="max-w-screen-md mx-auto"
           onSubmit={handleSubmit(submitHandler)}
         >
-          <h1 className="mb-4 text-xl">Shipping Address</h1>
+          <h1 className="py-4 text-xl font-bold">Shipping Address</h1>
           <div className="mb-4">
             <label htmlFor="fullName">Full Name</label>
             <input
@@ -142,16 +144,23 @@ const ShippingScreen: React.FC = (): React.ReactElement => {
             )}
           </div>
           <div className="flex justify-between mb-4">
-            <button className="primary-button">Next</button>
-            <button
-              type="button"
-              title="Click to autofill form with sample data."
-              className="secondary-button"
-              onClick={handleAutofill}
-            >
-              Autofill Form
+            <div className="py-2 text-gray-400">
+              <Link className="font-bold hover:text-gray-500" href="/cart">
+                Back to Cart
+              </Link>
+            </div>
+            <button className="text-white primary-button">
+              Continue to Payment
             </button>
           </div>
+          <button
+            type="button"
+            title="Click to autofill form with sample data."
+            className="secondary-button"
+            onClick={handleAutofill}
+          >
+            Autofill Form
+          </button>
         </form>
       </motion.div>
     </Layout>

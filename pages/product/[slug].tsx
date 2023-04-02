@@ -40,8 +40,8 @@ const ProductScreen: React.FC = (props): React.ReactElement => {
     <Layout title={product.name}>
       <div>
         {/* //* Back to Products Button */}
-        <div className="py-4">
-          <Link className="font-bold text-gray-500" href="/search">
+        <div className="py-2 text-gray-400">
+          <Link className="font-bold hover:text-gray-500" href="/search">
             Back to Products
           </Link>
         </div>

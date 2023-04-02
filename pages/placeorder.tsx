@@ -68,9 +68,10 @@ const PlaceOrderScreen: React.FC = (): React.ReactElement => {
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "tween", duration: 0.5 }}
       >
         <Checkout activeStep={3} />
-        <h1 className="mb-4 text-xl">Place Order</h1>
+        <h1 className="py-4 text-xl font-bold">Place Order</h1>
         {cartItems.length === 0 ? (
           <div>
             Cart is empty. <Link href="/">Go shopping</Link>
@@ -79,25 +80,29 @@ const PlaceOrderScreen: React.FC = (): React.ReactElement => {
           <div className="grid md:grid-cols-4 md:gap-5">
             <div className="overflow-x-auto md:col-span-3">
               <div className="p-5 card">
-                <h2 className="mb-2 text-lg">Shipping Address</h2>
+                <h2 className="mb-2 text-lg font-bold">Shipping Address</h2>
                 <div>
                   {shippingAddress.fullName}, {shippingAddress.address},{" "}
                   {shippingAddress.city}, {shippingAddress.postalCode},{" "}
                   {shippingAddress.country}
                 </div>
-                <div>
-                  <Link href="/shipping">Edit</Link>
+                <div className="py-2 text-gray-400">
+                  <Link className=" hover:text-gray-500" href="/shipping">
+                    Edit
+                  </Link>
                 </div>
               </div>
               <div className="p-5 card">
-                <h2 className="mb-2 text-lg">Payment Method</h2>
+                <h2 className="mb-2 text-lg font-bold">Payment Method</h2>
                 <div>{paymentMethod}</div>
-                <div>
-                  <Link href="/payment">Edit</Link>
+                <div className="py-2 text-gray-400">
+                  <Link className=" hover:text-gray-500" href="/payment">
+                    Edit
+                  </Link>
                 </div>
               </div>
               <div className="p-5 overflow-x-auto card">
-                <h2 className="mb-2 text-lg">Order Items</h2>
+                <h2 className="mb-2 text-lg font-bold">Order Items</h2>
                 <table className="min-w-full">
                   <thead className="border-b">
                     <tr>
@@ -134,14 +139,16 @@ const PlaceOrderScreen: React.FC = (): React.ReactElement => {
                     ))}
                   </tbody>
                 </table>
-                <div>
-                  <Link href="/cart">Edit</Link>
+                <div className="py-2 text-gray-400">
+                  <Link className=" hover:text-gray-500" href="/cart">
+                    Edit
+                  </Link>
                 </div>
               </div>
             </div>
             <div>
               <div className="p-5 card">
-                <h2 className="mb-2 text-lg">Order Summary</h2>
+                <h2 className="mb-2 text-lg font-bold">Order Summary</h2>
                 <ul>
                   <li>
                     <div className="flex justify-between mb-2">
@@ -171,7 +178,7 @@ const PlaceOrderScreen: React.FC = (): React.ReactElement => {
                     <button
                       disabled={loading}
                       onClick={placeOrderHandler}
-                      className="w-full primary-button"
+                      className="w-full text-white primary-button"
                     >
                       {loading ? "Loading..." : "Place Order"}
                     </button>

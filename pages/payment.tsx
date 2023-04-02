@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Cookies from "js-cookie";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -44,10 +45,11 @@ const PaymentScreen: React.FC = (): React.ReactElement => {
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "tween", duration: 0.5 }}
       >
         <Checkout activeStep={2} />
         <form className="max-w-screen-md mx-auto" onSubmit={submitHandler}>
-          <h1 className="mb-4 text-xl">Payment Method</h1>
+          <h1 className="py-4 text-xl font-bold">Choose Your Payment Method</h1>
           {["PayPal", "Stripe", "CashOnDelivery"].map((payment) => (
             <div key={payment} className="mb-4">
               <input
@@ -65,14 +67,12 @@ const PaymentScreen: React.FC = (): React.ReactElement => {
             </div>
           ))}
           <div className="flex justify-between mb-4">
-            <button
-              onClick={() => router.push("/shipping")}
-              type="button"
-              className="default-button"
-            >
-              Back
-            </button>
-            <button className="primary-button">Next</button>
+            <div className="py-2 text-gray-400">
+              <Link className="font-bold hover:text-gray-500" href="/shipping">
+                Back to Shipping
+              </Link>
+            </div>
+            <button className="text-white primary-button">Next</button>
           </div>
         </form>
       </motion.div>

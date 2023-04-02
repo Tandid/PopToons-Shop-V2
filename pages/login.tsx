@@ -53,6 +53,7 @@ const LoginScreen: React.FC = (): React.ReactElement => {
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "tween", duration: 0.5 }}
       >
         <form
           className="max-w-screen-md mx-auto"
