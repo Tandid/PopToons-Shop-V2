@@ -33,7 +33,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
           className="p-2"
         />
         <div className="absolute py-4 scale-125">
-          <p className="relative px-2 text-white bg-yellow-500 rounded-xl text-bold ">
+          <p className="relative px-2 text-white bg-yellow-500 shadow-lg rounded-xl text-bold">
             ${product.price}
           </p>
         </div>

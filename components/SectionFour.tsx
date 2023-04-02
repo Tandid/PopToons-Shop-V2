@@ -7,7 +7,7 @@ import { fadeIn, staggerContainer } from "../utils/motion";
 import { Store } from "../utils/Store";
 import ProductItem from "./ProductItem";
 
-const SectionThree: React.FC = ({ products }): React.ReactElement => {
+const SectionFour: React.FC = ({ products }): React.ReactElement => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -37,8 +37,8 @@ const SectionThree: React.FC = ({ products }): React.ReactElement => {
           className="flex items-center justify-center"
         >
           <Image
-            src={"/images/naruto-logo.png"}
-            alt={"Narutologo"}
+            src={"/images/one-piece-logo.png"}
+            alt={"NBAlogo"}
             width={300}
             height={0}
             className="items-center text-center"
@@ -46,7 +46,7 @@ const SectionThree: React.FC = ({ products }): React.ReactElement => {
         </motion.div>
         <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
           {products
-            .filter((x) => x.category === "Naruto Shippuden")
+            .filter((x) => x.category === "One Piece")
             .slice(0, 4)
             .map((product, idx) => (
               <motion.div
@@ -67,4 +67,4 @@ const SectionThree: React.FC = ({ products }): React.ReactElement => {
   );
 };
 
-export default SectionThree;
+export default SectionFour;

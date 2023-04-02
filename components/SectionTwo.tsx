@@ -41,21 +41,20 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
       >
         <motion.div
           variants={fadeIn("left", "tween", 0, 1)}
-          className="flex items-center justify-center"
+          className="absolute"
         >
           <Image
-            src={"/images/aot-bg.png"}
+            src={"/images/aotbg.png"}
             alt={"AOT"}
-            width={600}
+            width={700}
             height={0}
-            className="bg-red-100 bg-opacity-0 md:scale-150"
+            className="-translate-x-1/2 -translate-y-1/4"
           />
         </motion.div>
 
         <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
           {products
             .filter((x) => x.category === "Attack on Titan")
-            .slice(0, 4)
             .map((product, idx) => (
               <motion.div
                 variants={fadeIn("left", "spring", 1 + idx * 0.3, 1.5)}

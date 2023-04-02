@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { toast } from "react-toastify";
 import Banner from "../components/Banner";
 import Layout from "../components/Layout";
+import SectionFour from "../components/SectionFour";
 import SectionOne from "../components/SectionOne";
 import SectionThree from "../components/SectionThree";
 import SectionTwo from "../components/SectionTwo";
@@ -37,6 +38,7 @@ const Home: React.FC = ({ products }): React.ReactElement => {
           </h1> */}
           <SectionTwo products={products}></SectionTwo>
           <SectionThree products={products}></SectionThree>
+          <SectionFour products={products}></SectionFour>
         </div>
         {/* <div>
           {products.map((product) => (
