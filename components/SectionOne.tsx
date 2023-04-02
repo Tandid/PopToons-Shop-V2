@@ -32,7 +32,7 @@ const SectionOne: React.FC = (): React.ReactElement => {
       variants={staggerContainer(0, 5)}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.25 }}
       className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row py-10"
     >
       <div className="flex flex-row items-center justify-around">

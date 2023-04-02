@@ -28,7 +28,7 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
       <Image
         src={"/images/aot-logo.jpeg"}
         alt={"AOTlogo"}
-        width={400}
+        width={300}
         height={0}
         className="items-center text-center"
       />
@@ -36,7 +36,7 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
         variants={staggerContainer(0, 5)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
         className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row gap-8"
       >
         <motion.div
@@ -48,6 +48,7 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
             alt={"AOT"}
             width={600}
             height={0}
+            className="bg-red-100 bg-opacity-0 md:scale-150"
           />
         </motion.div>
 
@@ -58,7 +59,9 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
             .map((product, idx) => (
               <motion.div
                 variants={fadeIn("left", "spring", 1 + idx * 0.3, 1.5)}
+                whileHover={{ scale: 1.05 }}
                 key={idx}
+                className="z-10"
               >
                 <ProductItem
                   key={product.slug}

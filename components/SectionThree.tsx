@@ -27,8 +27,8 @@ const SectionThree: React.FC = ({ products }): React.ReactElement => {
     <div className="flex flex-col items-center py-10">
       <Image
         src={"/images/naruto-logo.png"}
-        alt={"AOTlogo"}
-        width={400}
+        alt={"Narutologo"}
+        width={300}
         height={0}
         className="items-center text-center"
       />
@@ -39,10 +39,10 @@ const SectionThree: React.FC = ({ products }): React.ReactElement => {
         viewport={{ once: false, amount: 0.25 }}
         className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row gap-8"
       >
-        <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-3">
+        <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
           {products
             .filter((x) => x.category === "shonen")
-            .slice(0, 3)
+            .slice(0, 4)
             .map((product, idx) => (
               <motion.div
                 variants={fadeIn("right", "spring", 1 + idx * 0.3, 1.5)}
@@ -61,9 +61,9 @@ const SectionThree: React.FC = ({ products }): React.ReactElement => {
           className="flex items-center justify-center"
         >
           <Image
-            src={"/images/aot-bg.png"}
+            src={"/images/naruto-bg1.png"}
             alt={"AOT"}
-            width={600}
+            width={450}
             height={0}
           />
         </motion.div>

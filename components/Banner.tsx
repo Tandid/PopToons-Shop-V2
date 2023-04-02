@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { motion } from "framer-motion";
+import Link from "next/link";
 import React from "react";
 import { fadeIn, staggerContainer } from "../utils/motion";
 
@@ -23,9 +24,9 @@ const Banner: React.FC = (): React.ReactElement => {
         ></img>
       </motion.div>
       <motion.div className="flex justify-center p-4">
-        <button type="button" className="font-bold text-white primary-button">
+        <Link className="font-bold text-white primary-button" href="/search">
           Shop Now
-        </button>
+        </Link>
       </motion.div>
     </motion.div>
   );

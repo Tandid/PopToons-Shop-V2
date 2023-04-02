@@ -109,6 +109,7 @@ const Search: React.FC = (props): React.ReactElement => {
         animate={{ opacity: 1, x: 0 }}
         className="grid md:grid-cols-4 md:gap-5"
       >
+        {/* Filters, can hide this */}
         <div>
           <div className="my-3">
             <h2>Categories</h2>
@@ -164,6 +165,7 @@ const Search: React.FC = (props): React.ReactElement => {
           </div>
         </div>
         <div className="md:col-span-3">
+          {/* Results, sort by column, can hide this */}
           <div className="flex items-center justify-between pb-2 mb-2 border-b-2">
             <div className="flex items-center">
               {products.length === 0 ? "No" : countProducts} Results
@@ -204,6 +206,7 @@ const Search: React.FC = (props): React.ReactElement => {
                 />
               ))}
             </div>
+            {/* Pagination */}
             <ul className="flex">
               {products.length > 0 &&
                 [...Array(pages).keys()].map((pageNumber) => (
