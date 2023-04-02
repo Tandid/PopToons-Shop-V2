@@ -202,9 +202,8 @@ const Search: React.FC = (props): React.ReactElement => {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ type: "tween", duration: 0.5, delay: 0.75 }}
-                  // className="rounded-lg hover:bg-red-500 hover:scale-105"
-                  className="hover:scale-105"
+                  // transition={{ type: "tween", duration: 0.5, delay: 0.75 }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   <ProductItem
                     key={product._id}
