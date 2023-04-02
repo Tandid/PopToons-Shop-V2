@@ -41,7 +41,7 @@ const SectionThree: React.FC = ({ products }): React.ReactElement => {
       >
         <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
           {products
-            .filter((x) => x.category === "shonen")
+            .filter((x) => x.category === "Naruto Shippuden")
             .slice(0, 4)
             .map((product, idx) => (
               <motion.div

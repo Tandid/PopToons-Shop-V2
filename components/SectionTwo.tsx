@@ -54,7 +54,7 @@ const SectionTwo: React.FC = ({ products }): React.ReactElement => {
 
         <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
           {products
-            .filter((x) => x.category === "KH")
+            .filter((x) => x.category === "Attack on Titan")
             .slice(0, 4)
             .map((product, idx) => (
               <motion.div
