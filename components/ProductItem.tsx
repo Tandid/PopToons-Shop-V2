@@ -19,9 +19,12 @@ const ProductItem: React.FC<ProductItemProps> = ({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="card"
+      className="bg-white card"
     >
-      <Link href={`/product/${product.slug}`} className="flex justify-center">
+      <Link
+        href={`/product/${product.slug}`}
+        className="flex justify-center bg-white"
+      >
         <Image
           src={product.image}
           alt={product.name}
@@ -29,26 +32,31 @@ const ProductItem: React.FC<ProductItemProps> = ({
           height={250}
           className="p-2"
         />
+        <div className="absolute py-4 scale-125">
+          <p className="relative px-2 text-white bg-yellow-500 rounded-xl text-bold ">
+            ${product.price}
+          </p>
+        </div>
       </Link>
 
-      <div className="flex flex-col items-center p-1">
-        <h2 className="text-lg">{product.name}</h2>
-        <p>${product.price}</p>
+      <div className="flex flex-col px-5 text-center">
+        <h2 className="text-lg text-bold">{product.name}</h2>
+        <p className="px-5 text-sm text-yellow-400">{product.category}</p>
       </div>
 
-      <div className="flex justify-around p-2">
+      <div className="flex justify-around p-2 bg-gray-100">
         <motion.button
           whileHover={{ scale: 1.05 }}
-          className="primary-button"
+          className="text-white primary-button"
           type="button"
           onClick={() => addToCartHandler(product)}
         >
           Add to Cart
         </motion.button>
 
-        <Link href={`/product/${product.slug}`}>
-          <button className="p-2">
-            <ArrowTopRightOnSquareIcon className="h-5 w-15"></ArrowTopRightOnSquareIcon>
+        <Link className="bg-transparent" href={`/product/${product.slug}`}>
+          <button className="p-2 bg-transparent">
+            <ArrowTopRightOnSquareIcon className="h-5 bg-transparent w-15"></ArrowTopRightOnSquareIcon>
           </button>
         </Link>
       </div>

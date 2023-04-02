@@ -82,13 +82,13 @@
   padding: 0;
   margin: 0;
   color: black;
-  background-color: white;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: white;
 }
 
 body {
@@ -123,7 +123,7 @@ body {
 input,
 select,
 textarea {
-  @apply p-2 border rounded outline-none ring-indigo-300 focus:ring;
+  @apply p-2 bg-white border rounded outline-none ring-indigo-300 focus:ring;
 }
 
 .dropdown-link {
