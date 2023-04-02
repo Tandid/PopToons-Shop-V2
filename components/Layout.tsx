@@ -1,4 +1,5 @@
 import { Menu } from "@headlessui/react";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Cookies from "js-cookie";
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
@@ -158,7 +159,7 @@ const Layout: React.FC<LayoutProps> = ({
             type="submit"
             id="button-addon2"
           >
-            Search
+            <MagnifyingGlassIcon className="w-5 h-5 hover:scale-105"></MagnifyingGlassIcon>
           </button>
         </form>
         <main className="container px-4 m-auto mt-4">{children}</main>

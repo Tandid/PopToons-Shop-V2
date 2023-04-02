@@ -37,6 +37,11 @@ const AdminOrderScreen: React.FC = (): React.ReactElement => {
     fetchData();
   }, []);
 
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
     <Layout title="Admin Dashboard">
       <div className="grid md:grid-cols-4 md:gap-5">
@@ -86,13 +91,11 @@ const AdminOrderScreen: React.FC = (): React.ReactElement => {
                       <td className="p-5">
                         {order.user ? order.user.name : "DELETED USER"}
                       </td>
-                      <td className="p-5">
-                        {order.createdAt.substring(0, 10)}
-                      </td>
+                      <td className="p-5">{formatDate(order.createdAt)}</td>
                       <td className="p-5">${order.totalPrice}</td>
                       <td className="p-5">
                         {order.isPaid
-                          ? `${order.paidAt.substring(0, 10)}`
+                          ? `${formatDate(order.paidAt)}`
                           : "not paid"}
                       </td>
                       <td className="p-5">

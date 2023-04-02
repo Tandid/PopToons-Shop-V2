@@ -168,6 +168,11 @@ const OrderScreen: React.FC = (): React.ReactElement => {
     }
   }
 
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
     <Layout title={`Order #${orderId}`}>
       <div>
@@ -188,7 +193,7 @@ const OrderScreen: React.FC = (): React.ReactElement => {
                 </div>
                 {isDelivered ? (
                   <div className="alert-success">
-                    Delivered at {deliveredAt}
+                    Delivered at {formatDate(deliveredAt)}
                   </div>
                 ) : (
                   <div className="alert-error">Not Delivered</div>
@@ -199,7 +204,9 @@ const OrderScreen: React.FC = (): React.ReactElement => {
                 <h2 className="mb-2 text-lg font-bold">Payment Method</h2>
                 <div>{paymentMethod}</div>
                 {isPaid ? (
-                  <div className="alert-success">Paid at {paidAt}</div>
+                  <div className="alert-success">
+                    Paid at {formatDate(paidAt)}
+                  </div>
                 ) : (
                   <div className="alert-error">Not Paid</div>
                 )}
