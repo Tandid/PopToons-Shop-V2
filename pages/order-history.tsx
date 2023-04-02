@@ -41,8 +41,9 @@ const OrderHistoryScreen: React.FC = (): React.ReactElement => {
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "tween", duration: 0.5 }}
       >
-        <h1 className="mb-4 text-xl">Order History</h1>
+        <h1 className="py-4 text-xl font-bold">Order History</h1>
         {loading ? (
           <div>Loading...</div>
         ) : error ? (
@@ -64,9 +65,7 @@ const OrderHistoryScreen: React.FC = (): React.ReactElement => {
                 {orders.map((order) => (
                   <tr key={order._id} className="border-b">
                     <td className="p-5 ">{order._id.substring(20, 24)}</td>
-                    <td className="p-5 ">
-                      {order.createdAt.substring(0, 10)}
-                    </td>
+                    <td className="p-5 ">{order.createdAt.substring(0, 10)}</td>
                     <td className="p-5 ">${order.totalPrice}</td>
                     <td className="p-5 ">
                       {order.isPaid

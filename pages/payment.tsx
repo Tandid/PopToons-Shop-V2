@@ -61,7 +61,7 @@ const PaymentScreen: React.FC = (): React.ReactElement => {
                 onChange={() => setSelectedPaymentMethod(payment)}
               />
 
-              <label className="p-2" htmlFor={payment}>
+              <label className="p-2 font-normal" htmlFor={payment}>
                 {payment}
               </label>
             </div>

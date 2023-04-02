@@ -171,7 +171,7 @@ const OrderScreen: React.FC = (): React.ReactElement => {
   return (
     <Layout title={`Order #${orderId}`}>
       <div>
-        <h1 className="mb-4 text-xl">{`Order #${orderId}`}</h1>
+        <h1 className="py-4 text-xl font-bold">{`Order #${orderId}`}</h1>
         {loading ? (
           <div>Loading...</div>
         ) : error ? (
@@ -180,7 +180,7 @@ const OrderScreen: React.FC = (): React.ReactElement => {
           <div className="grid md:grid-cols-4 md:gap-5">
             <div className="overflow-x-auto md:col-span-3">
               <div className="p-5 card">
-                <h2 className="mb-2 text-lg">Shipping Address</h2>
+                <h2 className="mb-2 text-lg font-bold">Shipping Address</h2>
                 <div>
                   {shippingAddress.fullName}, {shippingAddress.address},{" "}
                   {shippingAddress.city}, {shippingAddress.postalCode},{" "}
@@ -196,7 +196,7 @@ const OrderScreen: React.FC = (): React.ReactElement => {
               </div>
 
               <div className="p-5 card">
-                <h2 className="mb-2 text-lg">Payment Method</h2>
+                <h2 className="mb-2 text-lg font-bold">Payment Method</h2>
                 <div>{paymentMethod}</div>
                 {isPaid ? (
                   <div className="alert-success">Paid at {paidAt}</div>
@@ -206,7 +206,7 @@ const OrderScreen: React.FC = (): React.ReactElement => {
               </div>
 
               <div className="p-5 overflow-x-auto card">
-                <h2 className="mb-2 text-lg">Order Items</h2>
+                <h2 className="mb-2 text-lg font-bold">Order Items</h2>
                 <table className="min-w-full">
                   <thead className="border-b">
                     <tr>
@@ -247,7 +247,7 @@ const OrderScreen: React.FC = (): React.ReactElement => {
             </div>
             <div>
               <div className="p-5 card">
-                <h2 className="mb-2 text-lg">Order Summary</h2>
+                <h2 className="mb-2 text-lg font-bold">Order Summary</h2>
                 <ul>
                   <li>
                     <div className="flex justify-between mb-2">

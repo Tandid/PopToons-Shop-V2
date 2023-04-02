@@ -1,3 +1,4 @@
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useReducer } from "react";
@@ -89,7 +90,7 @@ const AdminUsersScreen: React.FC = (): React.ReactElement => {
           </ul>
         </div>
         <div className="overflow-x-auto md:col-span-3">
-          <h1 className="mb-4 text-xl">Users</h1>
+          <h1 className="py-4 text-xl font-bold">Users</h1>
           {loadingDelete && <div>Deleting...</div>}
           {loading ? (
             <div>Loading...</div>
@@ -113,19 +114,22 @@ const AdminUsersScreen: React.FC = (): React.ReactElement => {
                       <td className="p-5 ">{user._id.substring(20, 24)}</td>
                       <td className="p-5 ">{user.name}</td>
                       <td className="p-5 ">{user.email}</td>
-                      <td className="p-5 ">{user.isAdmin ? "YES" : "NO"}</td>
+                      <td className="p-5 ">{user.isAdmin ? "Yes" : "No"}</td>
                       <td className="p-5 ">
-                        <Link href={`/admin/user/${user._id}`} passHref>
-                          Edit
-                        </Link>
-                        &nbsp;
-                        <button
-                          type="button"
-                          className="default-button"
-                          onClick={() => deleteHandler(user._id)}
-                        >
-                          Delete
-                        </button>
+                        <div className="flex gap-1">
+                          <Link href={`/admin/user/${user._id}`} passHref>
+                            <PencilSquareIcon className="w-5 h-5 hover:scale-125">
+                              Edit
+                            </PencilSquareIcon>
+                          </Link>
+
+                          <button
+                            type="button"
+                            onClick={() => deleteHandler(user._id)}
+                          >
+                            <TrashIcon className="w-5 h-5 hover:scale-125"></TrashIcon>
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}

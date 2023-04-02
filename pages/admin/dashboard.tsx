@@ -1,4 +1,5 @@
 import axios from "axios";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { Bar } from "react-chartjs-2";
 
@@ -98,8 +99,14 @@ const AdminDashboardScreen: React.FC = (): React.ReactElement => {
             </li>
           </ul>
         </div>
-        <div className="md:col-span-3">
-          <h1 className="mb-4 text-xl">Admin Dashboard</h1>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "tween", duration: 0.5, delay: 0.5 }}
+          className="md:col-span-3"
+        >
+          <h1 className="py-2 text-xl font-bold">Admin Dashboard</h1>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
@@ -109,26 +116,45 @@ const AdminDashboardScreen: React.FC = (): React.ReactElement => {
               <div className="grid grid-cols-1 md:grid-cols-4">
                 <div className="p-5 m-5 card">
                   <p className="text-3xl">${summary.ordersPrice} </p>
-                  <p>Sales</p>
-                  <Link href="/admin/orders">View sales</Link>
+                  <p>Total Sales</p>
+                  <div className="text-gray-400 ">
+                    <Link className=" hover:text-gray-500" href="/admin/orders">
+                      View Sales
+                    </Link>
+                  </div>
                 </div>
                 <div className="p-5 m-5 card">
                   <p className="text-3xl">{summary.ordersCount} </p>
-                  <p>Orders</p>
-                  <Link href="/admin/orders">View orders</Link>
+                  <p>Total Orders</p>
+                  <div className="text-gray-400 ">
+                    <Link className=" hover:text-gray-500" href="/admin/orders">
+                      View Orders
+                    </Link>
+                  </div>
                 </div>
                 <div className="p-5 m-5 card">
                   <p className="text-3xl">{summary.productsCount} </p>
                   <p>Products</p>
-                  <Link href="/admin/products">View products</Link>
+                  <div className="text-gray-400 ">
+                    <Link
+                      className=" hover:text-gray-500"
+                      href="/admin/products"
+                    >
+                      View Products
+                    </Link>
+                  </div>
                 </div>
                 <div className="p-5 m-5 card">
                   <p className="text-3xl">{summary.usersCount} </p>
                   <p>Users</p>
-                  <Link href="/admin/users">View users</Link>
+                  <div className="text-gray-400 ">
+                    <Link className=" hover:text-gray-500" href="/admin/users">
+                      View Users
+                    </Link>
+                  </div>
                 </div>
               </div>
-              <h2 className="text-xl">Sales Report</h2>
+              <h2 className="py-4 text-xl font-bold">Sales Revenue</h2>
               <Bar
                 options={{
                   legend: { display: true, position: "right" },
@@ -137,7 +163,7 @@ const AdminDashboardScreen: React.FC = (): React.ReactElement => {
               />
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </Layout>
   );

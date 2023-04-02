@@ -1,3 +1,4 @@
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useReducer } from "react";
@@ -58,7 +59,7 @@ const AdminProductsScreen = () => {
           </ul>
         </div>
         <div className="overflow-x-auto md:col-span-3">
-          <h1 className="mb-4 text-xl">Products</h1>
+          <h1 className="py-4 text-xl font-bold">Products</h1>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
@@ -87,9 +88,17 @@ const AdminProductsScreen = () => {
                       <td className="p-5 ">{product.countInStock}</td>
                       <td className="p-5 ">{product.rating}</td>
                       <td className="p-5 ">
-                        <Link href={`/admin/product/${product._id}`}>Edit</Link>
-                        &nbsp;
-                        <button>Delete</button>
+                        <div className="flex gap-1">
+                          <Link href={`/admin/product/${product._id}`}>
+                            <PencilSquareIcon className="w-5 h-5 hover:scale-125">
+                              Edit
+                            </PencilSquareIcon>
+                          </Link>
+
+                          <button>
+                            <TrashIcon className="w-5 h-5 hover:scale-125"></TrashIcon>
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
