@@ -44,7 +44,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
         <p className="px-5 text-sm text-yellow-400">{product.category}</p>
       </div>
 
-      <div className="flex justify-around p-2 bg-gray-100">
+      <div className="flex justify-around p-2 bg-gray-100 rounded-b-lg">
         <motion.button
           whileHover={{ scale: 1.05 }}
           className="text-white primary-button"

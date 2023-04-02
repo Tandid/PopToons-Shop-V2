@@ -107,6 +107,7 @@ const Search: React.FC = (props): React.ReactElement => {
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "tween", duration: 0.5 }}
         className="grid md:grid-cols-4 md:gap-5"
       >
         {/* Filters, can hide this */}
@@ -199,11 +200,19 @@ const Search: React.FC = (props): React.ReactElement => {
           <div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 ">
               {products.map((product) => (
-                <ProductItem
-                  key={product._id}
-                  product={product}
-                  addToCartHandler={addToCartHandler}
-                />
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ type: "tween", duration: 0.5, delay: 0.75 }}
+                  // className="rounded-lg hover:bg-red-500 hover:scale-105"
+                  className="hover:scale-105"
+                >
+                  <ProductItem
+                    key={product._id}
+                    product={product}
+                    addToCartHandler={addToCartHandler}
+                  />
+                </motion.div>
               ))}
             </div>
             {/* Pagination */}
