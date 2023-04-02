@@ -34,70 +34,76 @@ const ProductScreen: React.FC = (props): React.ReactElement => {
 
     //? Updates the state with the new quantity in cart
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
-    router.push("/cart");
   };
 
   return (
     <Layout title={product.name}>
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        // transition={{ duration: 0.5 }}
-        className="flex"
-      >
+      <div>
         {/* //* Back to Products Button */}
-        <div className="py-2">
-          <Link href="/"> Back to Products </Link>
+        <div className="py-4">
+          <Link className="font-bold text-gray-500" href="/search">
+            Back to Products
+          </Link>
         </div>
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ type: "tween", duration: 0.5 }}
+          className="grid grid-cols-1 sm:grid-cols-3"
+        >
+          {/*//* Product Image */}
 
-        {/*//* Product Image */}
-        <div className="grid md:grid-cols-4 md:gap-3">
-          <div className="md:col-span-2">
+          <div className="border-[1px]">
             <Image
               src={product.image}
               alt={product.name}
-              width={300}
-              height={300}
+              width={500}
+              height={500}
             />
           </div>
-        </div>
-
-        {/*//* Product Details */}
-        <div>
-          <ul>
+          {/*//* Product Details */}
+          <ul className="p-4">
             <li>
-              <h1 className="text-lg">{product.name}</h1>
+              <h1 className="text-lg font-bold md:text-[24px]">
+                {product.brand} {product.name}
+              </h1>
             </li>
-            <li>Category: {product.category}</li>
-            <li>Brand: {product.brand}</li>
-            <li>
-              {product.rating} of {product.numReviews} reviews
+            <li className="text-yellow-500 md:text-[18px]">
+              {product.category}
             </li>
             <li>{product.description}</li>
           </ul>
-        </div>
 
-        <div>
-          <div className="card p-5">
-            <div className="mb-2 flex justify-between">
-              {/*//* Product Price */}
-              <div>Price</div>
-              <div>{product.price}</div>
+          <div>
+            <div className="p-5 card">
+              <div className="flex justify-between mb-2">
+                {/*//* Product Price */}
+                <div className="font-bold">Price</div>
+                <div>${product.price}</div>
+              </div>
+              <div className="flex justify-between mb-2">
+                {/* Product Stock */}
+                <div className="font-bold">Status</div>
+                <div>
+                  {product.countInStock > 0 ? "In Stock" : "Unavailable"}
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <button
+                  className="w-1/2 text-white primary-button"
+                  onClick={addToCartHandler}
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
-            <div className="mb-2 flex justify-between">
-              {/* Product Stock */}
-              <div>Status</div>
-              <div>{product.countInStock > 0 ? "In Stock" : "Unavailable"}</div>
-            </div>
-            <button
-              className="primary-button w-full"
-              onClick={addToCartHandler}
-            >
-              Add to Cart
-            </button>
           </div>
+        </motion.div>
+        {/* Product Reviews */}
+        <div className="flex p-4 flex-cols">
+          {product.rating} of {product.numReviews} reviews
         </div>
-      </motion.div>
+      </div>
     </Layout>
   );
 };

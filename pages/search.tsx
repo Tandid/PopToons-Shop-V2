@@ -100,7 +100,6 @@ const Search: React.FC = (props): React.ReactElement => {
       return;
     }
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
-    router.push("/cart");
   };
   return (
     <Layout title="search">

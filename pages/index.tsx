@@ -42,15 +42,6 @@ const Home: React.FC = ({ products }): React.ReactElement => {
           <SectionFour products={products}></SectionFour>
           <SectionFive products={products}></SectionFive>
         </div>
-        {/* <div>
-          {products.map((product) => (
-            <ProductItem
-              product={product}
-              key={product.slug}
-              addToCartHandler={addToCartHandler}
-            ></ProductItem>
-          ))}
-        </div> */}
       </div>
     </Layout>
   );
