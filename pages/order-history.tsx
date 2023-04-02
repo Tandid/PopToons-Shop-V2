@@ -83,9 +83,14 @@ const OrderHistoryScreen: React.FC = (): React.ReactElement => {
                         ? `${order.deliveredAt.substring(0, 10)}`
                         : "Not Delivered"}
                     </td>
-                    <td className="p-5 ">
-                      <Link href={`/order/${order._id}`} passHref>
-                        Details
+
+                    <td className="p-5 text-gray-400">
+                      <Link
+                        className=" hover:text-gray-500"
+                        href={`/order/${order._id}`}
+                        passHref
+                      >
+                        Order Details
                       </Link>
                     </td>
                   </tr>

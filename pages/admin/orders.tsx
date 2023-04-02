@@ -1,4 +1,5 @@
 import axios from "axios";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useReducer } from "react";
 import Layout from "../../components/Layout";
@@ -63,8 +64,13 @@ const AdminOrderScreen: React.FC = (): React.ReactElement => {
             </li>
           </ul>
         </div>
-        <div className="overflow-x-auto md:col-span-3">
-          <h1 className="mb-4 text-xl">Admin Orders</h1>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "tween", duration: 0.5, delay: 0.5 }}
+          className="overflow-x-auto md:col-span-3"
+        >
+          <h1 className="py-4 text-xl font-bold">Admin Orders</h1>
 
           {loading ? (
             <div>Loading...</div>
@@ -96,15 +102,20 @@ const AdminOrderScreen: React.FC = (): React.ReactElement => {
                       <td className="p-5">
                         {order.isPaid
                           ? `${formatDate(order.paidAt)}`
-                          : "not paid"}
+                          : "Not Paid"}
                       </td>
                       <td className="p-5">
                         {order.isDelivered
-                          ? `${order.deliveredAt.substring(0, 10)}`
-                          : "not delivered"}
+                          ? `${formatDate(order.deliveredAt)}`
+                          : "Not Delivered"}
                       </td>
-                      <td className="p-5">
-                        <Link href={`/order/${order._id}`} passHref>
+
+                      <td className="p-5 text-gray-400">
+                        <Link
+                          className=" hover:text-gray-500"
+                          href={`/order/${order._id}`}
+                          passHref
+                        >
                           Details
                         </Link>
                       </td>
@@ -114,7 +125,7 @@ const AdminOrderScreen: React.FC = (): React.ReactElement => {
               </table>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </Layout>
   );
