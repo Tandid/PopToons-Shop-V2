@@ -71,14 +71,14 @@ const Layout: React.FC<LayoutProps> = ({
             <div>
               {/* //? Shop */}
               <Link
-                className="p-2 font-bold text-white bg-red-500 text-large hover:text-black"
+                className="p-2 font-bold text-white bg-red-500 text-large hover:text-gray-300"
                 href="/search"
               >
                 Shop
               </Link>
               {/* //? Badge */}
               <Link
-                className="p-2 font-bold text-white bg-red-500 text-large hover:text-black"
+                className="p-2 font-bold text-white bg-red-500 text-large hover:text-gray-300"
                 href="/cart"
               >
                 Cart
@@ -93,12 +93,15 @@ const Layout: React.FC<LayoutProps> = ({
                 "Loading"
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block font-bold">
-                  <Menu.Button className="px-2 text-gray-100 bg-red-500 hover:text-black">
+                  <Menu.Button className="px-2 text-gray-100 bg-red-500 hover:text-gray-300">
                     {session.user.name}
                   </Menu.Button>
-                  <Menu.Items className="absolute right-0 z-10 w-56 origin-top-right bg-white shadow-lg ">
+                  <Menu.Items className="absolute right-0 z-10 w-56 origin-top-right bg-white rounded-lg shadow-lg">
                     <Menu.Item>
-                      <Dropdown className="dropdown-link" href="/profile">
+                      <Dropdown
+                        className="rounded-t-lg dropdown-link"
+                        href="/profile"
+                      >
                         Profile
                       </Dropdown>
                     </Menu.Item>
@@ -119,7 +122,7 @@ const Layout: React.FC<LayoutProps> = ({
                     )}
                     <Menu.Item>
                       <Link
-                        className="dropdown-link"
+                        className="rounded-b-lg dropdown-link"
                         href="#"
                         onClick={logoutClickHandler}
                       >
