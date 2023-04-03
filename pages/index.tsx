@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import SectionFive from "../components/SectionFive";
 import SectionFour from "../components/SectionFour";
 import SectionOne from "../components/SectionOne";
+import SectionSix from "../components/SectionSix";
 import SectionThree from "../components/SectionThree";
 import SectionTwo from "../components/SectionTwo";
 import Product from "../models/Product";
@@ -23,6 +24,7 @@ const Home: React.FC = ({ products }): React.ReactElement => {
             </h1>
           </div>
           <SectionTwo products={products}></SectionTwo>
+          <SectionSix products={products}></SectionSix>
           <div className="p-10 mt-8 scale-110 bg-gray-300 opacity-80">
             <h1 className="font-bold md:text-[64px] text-[40px] text-white text-center">
               Fan Favorites
