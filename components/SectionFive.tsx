@@ -27,7 +27,8 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
     toast.success("Product added to the cart");
   };
   return (
-    <div className="flex flex-col items-center py-5 bg-black">
+    //yello-400 red-800
+    <div className="flex flex-col items-center pt-2 pb-10 text-white scale-x-110 bg-gradient-to-b from-sky-700 to-white text-shadow-md">
       <Image
         src={"/images/logos/lionking-logo.png"}
         alt={"lion king logo"}

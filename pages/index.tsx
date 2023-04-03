@@ -30,6 +30,9 @@ const Home: React.FC = ({ products }): React.ReactElement => {
           </div>
           <SectionThree products={products}></SectionThree>
           <SectionFour products={products}></SectionFour>
+          <div className="p-4 mt-8 scale-110 bg-gray-300 ">
+            <h1 className="font-bold md:text-[64px] text-[40px] text-white text-center"></h1>
+          </div>
           <SectionFive products={products}></SectionFive>
         </div>
       </div>
