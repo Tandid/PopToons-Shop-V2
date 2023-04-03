@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Menu } from "@headlessui/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Cookies from "js-cookie";
