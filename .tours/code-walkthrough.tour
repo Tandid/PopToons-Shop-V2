@@ -1,0 +1,31 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Components",
+  "steps": [
+    {
+      "file": "components/Banner.tsx",
+      "description": "Banner Component:\nDisplays the banner and Shop Now Button",
+      "line": 1
+    },
+    {
+      "file": "components/Checkout.tsx",
+      "description": "During the checkout process, this displays the top most component with the following steps:\n    - User Login\n    - Shipping Information\n    - Choosing a payment method\n    - Placing order",
+      "line": 1
+    },
+    {
+      "file": "components/Dropdown.tsx",
+      "description": "The Dropdown component is what's displayed on the nav bar when a user logs in and clicks on their name. The drop down has the following: - Profile Data - Order History - Dashboard - Logout Button",
+      "line": 1
+    },
+    {
+      "file": "components/Layout.tsx",
+      "description": "The Layout Component consists of three sections: - Navbar - Dynamic Main Section (this component is always changing) - Footer",
+      "line": 1
+    },
+    {
+      "file": "components/ProductItem.tsx",
+      "description": "This Component is essentially the product card consisting of all the product details",
+      "line": 1
+    }
+  ]
+}

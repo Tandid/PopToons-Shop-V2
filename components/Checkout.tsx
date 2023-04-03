@@ -8,7 +8,7 @@ const Checkout: React.FC<CheckoutProps> = ({
   activeStep = 0,
 }): React.ReactElement => {
   return (
-    <div className="mb-5 flex flex-wrap">
+    <div className="flex flex-wrap mb-5">
       {["User Login", "Shipping Address", "Payment Method", "Place Order"].map(
         (step, index) => (
           <div
@@ -17,8 +17,8 @@ const Checkout: React.FC<CheckoutProps> = ({
           text-center 
        ${
          index <= activeStep
-           ? "border-indigo-500   text-indigo-500"
-           : "border-gray-400 text-gray-400"
+           ? "border-blue-500   text-blue-500"
+           : "border-gray-500 text-gray-500"
        }
           
        `}

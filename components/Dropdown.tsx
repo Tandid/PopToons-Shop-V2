@@ -4,6 +4,7 @@ import React, { ReactNode } from "react";
 interface DropdownProps {
   children: ReactNode;
   href?: string;
+  className?: string;
 }
 
 const Dropdown: React.FC<DropdownProps> = (props): React.ReactElement => {

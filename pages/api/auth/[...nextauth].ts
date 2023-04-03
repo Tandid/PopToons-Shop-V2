@@ -1,8 +1,29 @@
+// @ts-ignore
+
 import bcryptjs from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "../../../models/User";
 import db from "../../../utils/db";
+
+type SessionUser = {
+  _id: string;
+  name?: string | null;
+  email?: string | null;
+  image?: string | null;
+  isAdmin?: boolean;
+};
+
+type CustomSession = {
+  user: SessionUser;
+};
+
+type CustomToken = {
+  _id?: string;
+  isAdmin?: any;
+  iat?: number;
+  exp?: number;
+};
 
 export default NextAuth({
   session: {
@@ -10,12 +31,18 @@ export default NextAuth({
   },
 
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user }: { token: CustomToken; user?: SessionUser }) {
       if (user?._id) token._id = user._id;
       if (user?.isAdmin) token.isAdmin = user.isAdmin;
       return token;
     },
-    async session({ session, token }) {
+    async session({
+      session,
+      token,
+    }: {
+      session: CustomSession;
+      token: CustomToken;
+    }) {
       if (token?._id) session.user._id = token._id;
       if (token?.isAdmin) session.user.isAdmin = token.isAdmin;
       return session;

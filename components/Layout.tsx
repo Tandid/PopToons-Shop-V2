@@ -18,11 +18,15 @@ type LayoutProps = {
   children?: React.ReactElement | string;
 };
 
+type CustomSession = {
+  user: SessionUser;
+};
+
 const Layout: React.FC<LayoutProps> = ({
   title,
   children,
 }): React.ReactElement => {
-  const { status, data: session } = useSession();
+  const { status, data: session } = useSession<CustomSession>();
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -41,7 +45,7 @@ const Layout: React.FC<LayoutProps> = ({
   const [query, setQuery] = useState("");
 
   const router = useRouter();
-  const submitHandler = (e) => {
+  const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     router.push(`/search?query=${query}`);
   };
