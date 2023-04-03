@@ -4,7 +4,6 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
 import Layout from "../../components/Layout";
@@ -15,7 +14,6 @@ import { Store } from "../../utils/Store"; //? Provides store access
 const ProductScreen: React.FC = (props): React.ReactElement => {
   const { product } = props;
   const { state, dispatch } = useContext(Store); //? Provides store access
-  const router = useRouter();
 
   if (!product) {
     return <Layout title="Product Not Found">Product Not Found</Layout>;

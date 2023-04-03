@@ -18,17 +18,17 @@ type LayoutProps = {
   children?: React.ReactElement | string;
 };
 
-type SessionUser = {
-  _id: string;
-  name?: string | null;
-  email?: string | null;
-  image?: string | null;
-  isAdmin?: any;
-};
+// type SessionUser = {
+//   _id: string;
+//   name?: string | null;
+//   email?: string | null;
+//   image?: string | null;
+//   isAdmin?: any;
+// };
 
-type CustomSession = {
-  user: SessionUser;
-};
+// type CustomSession = {
+//   user: SessionUser;
+// };
 
 const Layout: React.FC<LayoutProps> = ({
   title,
