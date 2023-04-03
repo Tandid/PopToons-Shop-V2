@@ -29,13 +29,19 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
   return (
     //yello-400 red-800
     <div className="flex flex-col items-center pt-2 pb-10 text-white scale-x-110 bg-gradient-to-b from-sky-700 to-white text-shadow-md">
-      <Image
-        src={"/images/logos/lionking-logo.png"}
-        alt={"lion king logo"}
-        width={300}
-        height={0}
-        className="z-10 items-center m-5 text-center"
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", duration: 2, delay: 1 }}
+      >
+        <Image
+          src={"/images/logos/lionking-logo.png"}
+          alt={"lion king logo"}
+          width={300}
+          height={0}
+          className="z-10 items-center m-5 text-center"
+        />
+      </motion.div>
       <motion.div
         variants={staggerContainer(0, 5)}
         initial="hidden"
@@ -64,7 +70,7 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
             )
             .map((product: Product, idx: number) => (
               <motion.div
-                variants={fadeIn("left", "spring", 1 + idx * 0.3, 1.5)}
+                variants={fadeIn("right", "spring", 1 + idx * 0.3, 1.5)}
                 whileHover={{ scale: 1.05 }}
                 key={idx}
               >

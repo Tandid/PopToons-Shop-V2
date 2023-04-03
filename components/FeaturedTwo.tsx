@@ -28,13 +28,19 @@ const FeaturedTwo: React.FC<{ products: Product[] }> = ({
   };
   return (
     <div className="flex flex-col items-center py-10">
-      <Image
-        src={"/images/logos/nba-logo.png"}
-        alt={"AOTlogo"}
-        width={200}
-        height={0}
-        className="items-center text-center"
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", duration: 2, delay: 1 }}
+      >
+        <Image
+          src={"/images/logos/nba-logo.png"}
+          alt={"AOTlogo"}
+          width={200}
+          height={0}
+          className="items-center text-center"
+        />
+      </motion.div>
       <motion.div
         variants={staggerContainer(0, 5)}
         initial="hidden"

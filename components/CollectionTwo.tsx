@@ -36,12 +36,12 @@ const CollectionTwo: React.FC<{ products: Product[] }> = ({
         className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row gap-8"
       >
         <motion.div
-          variants={fadeIn("right", "tween", 0, 1)}
+          variants={fadeIn("up", "tween", 0, 1)}
           className="flex items-center justify-center"
         >
           <Image
             src={"/images/logos/one-piece-logo.png"}
-            alt={"NBAlogo"}
+            alt={"one-piece-logo"}
             width={300}
             height={0}
             className="items-center text-center"
