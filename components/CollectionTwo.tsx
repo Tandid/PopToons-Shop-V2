@@ -8,7 +8,7 @@ import { fadeIn, staggerContainer } from "../utils/motion";
 import { Store } from "../utils/Store";
 import ProductItem from "./ProductItem";
 
-const SectionTwo: React.FC<{ products: Product[] }> = ({
+const CollectionTwo: React.FC<{ products: Product[] }> = ({
   products,
 }): React.ReactElement => {
   const { state, dispatch } = useContext(Store);
@@ -28,13 +28,6 @@ const SectionTwo: React.FC<{ products: Product[] }> = ({
   };
   return (
     <div className="flex flex-col items-center py-10">
-      <Image
-        src={"/images/logos/aot-logo.jpeg"}
-        alt={"AOTlogo"}
-        width={300}
-        height={0}
-        className="items-center text-center"
-      />
       <motion.div
         variants={staggerContainer(0, 5)}
         initial="hidden"
@@ -43,27 +36,26 @@ const SectionTwo: React.FC<{ products: Product[] }> = ({
         className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row gap-8"
       >
         <motion.div
-          variants={fadeIn("left", "tween", 0, 1)}
-          className="absolute"
+          variants={fadeIn("right", "tween", 0, 1)}
+          className="flex items-center justify-center"
         >
           <Image
-            src={"/images/backgrounds/aotbg.png"}
-            alt={"AOT"}
-            width={700}
+            src={"/images/logos/one-piece-logo.png"}
+            alt={"NBAlogo"}
+            width={300}
             height={0}
-            className="md:-translate-x-1/3 sm:-translate-y-10 md:scale-90 lg:-translate-x-1/2 lg:-translate-y-1/4"
+            className="items-center text-center"
           />
         </motion.div>
-
         <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
           {products
-            .filter((x) => x.category === "Attack on Titan")
+            .filter((x) => x.category === "One Piece")
+            .slice(0, 4)
             .map((product, idx) => (
               <motion.div
-                variants={fadeIn("left", "spring", 1 + idx * 0.3, 1.5)}
+                variants={fadeIn("right", "spring", 1 + idx * 0.3, 1.5)}
                 whileHover={{ scale: 1.05 }}
                 key={idx}
-                className="z-10"
               >
                 <ProductItem
                   key={product.slug}
@@ -78,4 +70,4 @@ const SectionTwo: React.FC<{ products: Product[] }> = ({
   );
 };
 
-export default SectionTwo;
+export default CollectionTwo;

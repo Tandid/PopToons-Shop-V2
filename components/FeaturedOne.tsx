@@ -8,7 +8,7 @@ import { fadeIn, staggerContainer } from "../utils/motion";
 import { Store } from "../utils/Store";
 import ProductItem from "./ProductItem";
 
-const SectionSix: React.FC<{ products: Product[] }> = ({
+const FeaturedOne: React.FC<{ products: Product[] }> = ({
   products,
 }): React.ReactElement => {
   const { state, dispatch } = useContext(Store);
@@ -29,9 +29,9 @@ const SectionSix: React.FC<{ products: Product[] }> = ({
   return (
     <div className="flex flex-col items-center py-10">
       <Image
-        src={"/images/logos/nba-logo.png"}
+        src={"/images/logos/aot-logo.jpeg"}
         alt={"AOTlogo"}
-        width={200}
+        width={300}
         height={0}
         className="items-center text-center"
       />
@@ -43,21 +43,21 @@ const SectionSix: React.FC<{ products: Product[] }> = ({
         className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row gap-8"
       >
         <motion.div
-          variants={fadeIn("right", "tween", 0, 1)}
+          variants={fadeIn("left", "tween", 0, 1)}
           className="absolute"
         >
           <Image
-            src={"/images/backgrounds/nba-bg.png"}
-            alt={"NBA"}
-            width={500}
+            src={"/images/backgrounds/aotbg.png"}
+            alt={"AOT"}
+            width={700}
             height={0}
-            className="scale-75 translate-y-10 md:translate-y-0 md:translate-x-2/3 lg:scale-100 lg:-translate-y-1/4"
+            className="md:-translate-x-1/3 sm:-translate-y-10 md:scale-90 lg:-translate-x-1/2 lg:-translate-y-1/4"
           />
         </motion.div>
 
         <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
           {products
-            .filter((x) => x.category === "NBA")
+            .filter((x) => x.category === "Attack on Titan")
             .map((product, idx) => (
               <motion.div
                 variants={fadeIn("left", "spring", 1 + idx * 0.3, 1.5)}
@@ -78,4 +78,4 @@ const SectionSix: React.FC<{ products: Product[] }> = ({
   );
 };
 
-export default SectionSix;
+export default FeaturedOne;

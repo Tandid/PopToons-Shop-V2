@@ -1,13 +1,13 @@
 // @ts-nocheck
 
 import Banner from "../components/Banner";
+import CollectionOne from "../components/CollectionOne";
+import CollectionTwo from "../components/CollectionTwo";
+import FeaturedOne from "../components/FeaturedOne";
+import FeaturedTwo from "../components/FeaturedTwo";
 import Layout from "../components/Layout";
 import SectionFive from "../components/SectionFive";
-import SectionFour from "../components/SectionFour";
 import SectionOne from "../components/SectionOne";
-import SectionSix from "../components/SectionSix";
-import SectionThree from "../components/SectionThree";
-import SectionTwo from "../components/SectionTwo";
 import Product from "../models/Product";
 import db from "../utils/db";
 
@@ -23,16 +23,16 @@ const Home: React.FC = ({ products }): React.ReactElement => {
               Featured Collection
             </h1>
           </div>
-          <SectionTwo products={products}></SectionTwo>
+          <FeaturedOne products={products}></FeaturedOne>
           <div className="p-4 scale-x-125 bg-gray-100 sm:scale-150 lg:scale-125 xl:scale-110"></div>
-          <SectionSix products={products}></SectionSix>
+          <FeaturedTwo products={products}></FeaturedTwo>
           <div className="p-10 mt-8 scale-110 bg-gray-300 opacity-80">
             <h1 className="font-bold md:text-[64px] text-[40px] text-white text-center">
               Fan Favorites
             </h1>
           </div>
-          <SectionThree products={products}></SectionThree>
-          <SectionFour products={products}></SectionFour>
+          <CollectionOne products={products}></CollectionOne>
+          <CollectionTwo products={products}></CollectionTwo>
           <div className="p-4 mt-8 scale-110 bg-gray-300 "></div>
           <SectionFive products={products}></SectionFive>
         </div>

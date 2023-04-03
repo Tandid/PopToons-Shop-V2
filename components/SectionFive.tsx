@@ -52,12 +52,11 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
             alt={"AOT"}
             width={600}
             height={600}
-            // className="items-center text-center translate-x-40 -translate-y-20 rounded-xl"
-            className="items-center text-center rounded-xl"
+            className="items-center scale-90 md:scale-100 rounded-xl "
           />
         </motion.div>
 
-        <div className="scale-125">
+        <div className="-translate-y-1/3 sm:scale-125 lg:translate-y-0 lg:-translate-x-10">
           {products
             .filter(
               (x: { category: string; brand: string }) =>

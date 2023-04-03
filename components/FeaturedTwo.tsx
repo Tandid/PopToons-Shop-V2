@@ -8,7 +8,7 @@ import { fadeIn, staggerContainer } from "../utils/motion";
 import { Store } from "../utils/Store";
 import ProductItem from "./ProductItem";
 
-const SectionThree: React.FC<{ products: Product[] }> = ({
+const FeaturedTwo: React.FC<{ products: Product[] }> = ({
   products,
 }): React.ReactElement => {
   const { state, dispatch } = useContext(Store);
@@ -28,6 +28,13 @@ const SectionThree: React.FC<{ products: Product[] }> = ({
   };
   return (
     <div className="flex flex-col items-center py-10">
+      <Image
+        src={"/images/logos/nba-logo.png"}
+        alt={"AOTlogo"}
+        width={200}
+        height={0}
+        className="items-center text-center"
+      />
       <motion.div
         variants={staggerContainer(0, 5)}
         initial="hidden"
@@ -37,25 +44,26 @@ const SectionThree: React.FC<{ products: Product[] }> = ({
       >
         <motion.div
           variants={fadeIn("right", "tween", 0, 1)}
-          className="flex items-center justify-center"
+          className="absolute"
         >
           <Image
-            src={"/images/logos/naruto-logo.png"}
-            alt={"Narutologo"}
-            width={300}
+            src={"/images/backgrounds/nba-bg.png"}
+            alt={"NBA"}
+            width={500}
             height={0}
-            className="items-center text-center"
+            className="scale-75 translate-y-10 md:translate-y-0 md:translate-x-2/3 lg:scale-100 lg:-translate-y-1/4"
           />
         </motion.div>
+
         <div className="grid items-center grid-cols-2 gap-4 md:grid-cols-4">
           {products
-            .filter((x) => x.category === "Naruto Shippuden")
-            .slice(0, 4)
+            .filter((x) => x.category === "NBA")
             .map((product, idx) => (
               <motion.div
-                variants={fadeIn("right", "spring", 1 + idx * 0.3, 1.5)}
+                variants={fadeIn("left", "spring", 1 + idx * 0.3, 1.5)}
                 whileHover={{ scale: 1.05 }}
                 key={idx}
+                className="z-10"
               >
                 <ProductItem
                   key={product.slug}
@@ -70,4 +78,4 @@ const SectionThree: React.FC<{ products: Product[] }> = ({
   );
 };
 
-export default SectionThree;
+export default FeaturedTwo;
