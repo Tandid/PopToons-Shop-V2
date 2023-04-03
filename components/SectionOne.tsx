@@ -4,7 +4,7 @@ import React from "react";
 import { fadeIn, staggerContainer } from "../utils/motion";
 
 const SectionOne: React.FC = (): React.ReactElement => {
-  let logos = [
+  const logos = [
     {
       src: "/images/aot-logo.jpeg",
       alt: "Attack on Titans",

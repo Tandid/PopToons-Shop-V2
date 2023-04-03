@@ -8,7 +8,8 @@ interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = (props): React.ReactElement => {
-  let { href, children, ...rest } = props;
+  const { children, ...rest } = props;
+  let { href } = props;
   href = href || "#"; //# serves as the default value and helps with type checking
   return (
     <Link {...rest} href={href}>

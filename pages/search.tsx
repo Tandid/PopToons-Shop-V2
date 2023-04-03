@@ -200,8 +200,9 @@ const Search: React.FC = (props): React.ReactElement => {
           </div>
           <div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 ">
-              {products.map((product) => (
+              {products.map((product, idx) => (
                 <motion.div
+                  key={idx}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   // transition={{ type: "tween", duration: 0.5, delay: 0.75 }}
