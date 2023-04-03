@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { CartItem } from "../utils/data.interface"; //TS
 import { Store } from "../utils/Store";
 import Dropdown from "./Dropdown";
+import Footer from "./Footer";
 
 type LayoutProps = {
   title?: string;
@@ -178,9 +179,10 @@ const Layout: React.FC<LayoutProps> = ({
           </button>
         </form>
         <main className="container px-4 m-auto mt-4">{children}</main>
-        <footer className="flex items-center justify-center h-10 shadow-inner">
+        <Footer></Footer>
+        {/* <footer className="flex items-center justify-center h-10 shadow-inner">
           Copyright @ 2023 Poptoons Shop
-        </footer>
+        </footer> */}
       </div>
     </>
   );
