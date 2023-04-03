@@ -1,19 +1,23 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Social {
   name: string;
-  url: string;
+  imgUrl: string;
+  href: string;
 }
 
 const socials: Social[] = [
   {
     name: "linkedin",
-    url: "/images/logos/linkedin.png",
+    imgUrl: "/images/logos/linkedin.png",
+    href: "https://www.linkedin.com/in/tandidalam/",
   },
   {
     name: "github",
-    url: "/images/logos/github.png",
+    imgUrl: "/images/logos/github.png",
+    href: "https://github.com/Tandid",
   },
 ];
 
@@ -33,13 +37,20 @@ const Footer: React.FC = (): React.ReactElement => (
           <div className="flex gap-4">
             {socials.map(
               (social: Social): React.ReactElement => (
-                <Image
+                <Link
                   key={social.name}
-                  src={social.url}
-                  alt={social.name}
-                  width="30"
-                  height="30"
-                />
+                  href={social.href}
+                  target="_blank"
+                  className="hover:scale-105"
+                >
+                  <Image
+                    key={social.name}
+                    src={social.imgUrl}
+                    alt={social.name}
+                    width="30"
+                    height="30"
+                  />
+                </Link>
               )
             )}
           </div>
