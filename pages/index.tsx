@@ -17,10 +17,17 @@ const Home: React.FC = ({ products }): React.ReactElement => {
         <Banner />
         <SectionOne></SectionOne>
         <div>
-          {/* <h1 className="text-bold text-large text-[50px] text-center">
-            Featured Collections
-          </h1> */}
+          <div className="scale-110 bg-slate-800 p-14">
+            <h1 className="font-bold md:text-[64px] text-[40px] text-gray-500 text-center">
+              Featured Collection
+            </h1>
+          </div>
           <SectionTwo products={products}></SectionTwo>
+          <div className="p-10 mt-8 scale-110 bg-gray-300 opacity-80">
+            <h1 className="font-bold md:text-[64px] text-[40px] text-white text-center">
+              Fan Favorites
+            </h1>
+          </div>
           <SectionThree products={products}></SectionThree>
           <SectionFour products={products}></SectionFour>
           <SectionFive products={products}></SectionFive>

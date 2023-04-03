@@ -27,7 +27,7 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
     toast.success("Product added to the cart");
   };
   return (
-    <div className="flex flex-col items-center py-5">
+    <div className="flex flex-col items-center py-5 bg-black">
       <Image
         src={"/images/logos/lionking-logo.png"}
         alt={"lion king logo"}
