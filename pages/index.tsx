@@ -24,6 +24,7 @@ const Home: React.FC = ({ products }): React.ReactElement => {
             </h1>
           </div>
           <SectionTwo products={products}></SectionTwo>
+          <div className="p-4 scale-x-125 bg-gray-100 sm:scale-150 lg:scale-125 xl:scale-110"></div>
           <SectionSix products={products}></SectionSix>
           <div className="p-10 mt-8 scale-110 bg-gray-300 opacity-80">
             <h1 className="font-bold md:text-[64px] text-[40px] text-white text-center">
@@ -32,9 +33,7 @@ const Home: React.FC = ({ products }): React.ReactElement => {
           </div>
           <SectionThree products={products}></SectionThree>
           <SectionFour products={products}></SectionFour>
-          <div className="p-4 mt-8 scale-110 bg-gray-300 ">
-            <p className="font-bold md:text-[64px] text-[40px] text-white text-center"></p>
-          </div>
+          <div className="p-4 mt-8 scale-110 bg-gray-300 "></div>
           <SectionFive products={products}></SectionFive>
         </div>
       </div>

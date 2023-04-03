@@ -51,7 +51,7 @@ const SectionTwo: React.FC<{ products: Product[] }> = ({
             alt={"AOT"}
             width={700}
             height={0}
-            className="md:-translate-x-1/3 md:scale-90 lg:-translate-x-1/2 lg:-translate-y-1/4"
+            className="md:-translate-x-1/3 sm:-translate-y-10 md:scale-90 lg:-translate-x-1/2 lg:-translate-y-1/4"
           />
         </motion.div>
 
