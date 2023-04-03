@@ -18,7 +18,7 @@ const Banner: React.FC = (): React.ReactElement => {
         className="relative flex items-center justify-center flex-1"
       >
         <img
-          src="/images/banner2.jpg"
+          src="/images/backgrounds/banner2.jpg"
           alt="banner-1"
           className="w-full lg:h-[500px] h-auto min-h-[210px] rounded-[20px]"
         ></img>

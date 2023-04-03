@@ -75,7 +75,7 @@ const Layout: React.FC<LayoutProps> = ({
             {/* //? Home Button */}
             <Link href="/">
               <Image
-                src={`/images/logo.png`}
+                src={`/images/logos/logo.png`}
                 alt={"Pop Toons Shop"}
                 width={60}
                 height={60}

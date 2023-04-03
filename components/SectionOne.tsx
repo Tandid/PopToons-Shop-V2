@@ -6,23 +6,23 @@ import { fadeIn, staggerContainer } from "../utils/motion";
 const SectionOne: React.FC = (): React.ReactElement => {
   const logos = [
     {
-      src: "/images/aot-logo.jpeg",
+      src: "/images/logos/aot-logo.jpeg",
       alt: "Attack on Titans",
     },
     {
-      src: "/images/naruto-logo.png",
+      src: "/images/logos/naruto-logo.png",
       alt: "Naruto Shippuden",
     },
     {
-      src: "/images/pokemon-logo.png",
+      src: "/images/logos/pokemon-logo.png",
       alt: "Pokemon",
     },
     {
-      src: "/images/marvel-logo.png",
+      src: "/images/logos/marvel-logo.png",
       alt: "Marvel",
     },
     {
-      src: "/images/avatar-logo.png",
+      src: "/images/logos/avatar-logo.png",
       alt: "Avatar the Last Airbender",
     },
   ];

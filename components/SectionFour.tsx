@@ -40,7 +40,7 @@ const SectionFour: React.FC<{ products: Product[] }> = ({
           className="flex items-center justify-center"
         >
           <Image
-            src={"/images/one-piece-logo.png"}
+            src={"/images/logos/one-piece-logo.png"}
             alt={"NBAlogo"}
             width={300}
             height={0}

@@ -29,7 +29,7 @@ const SectionTwo: React.FC<{ products: Product[] }> = ({
   return (
     <div className="flex flex-col items-center py-10">
       <Image
-        src={"/images/aot-logo.jpeg"}
+        src={"/images/logos/aot-logo.jpeg"}
         alt={"AOTlogo"}
         width={300}
         height={0}
@@ -47,7 +47,7 @@ const SectionTwo: React.FC<{ products: Product[] }> = ({
           className="absolute"
         >
           <Image
-            src={"/images/aotbg.png"}
+            src={"/images/backgrounds/aotbg.png"}
             alt={"AOT"}
             width={700}
             height={0}

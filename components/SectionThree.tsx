@@ -40,7 +40,7 @@ const SectionThree: React.FC<{ products: Product[] }> = ({
           className="flex items-center justify-center"
         >
           <Image
-            src={"/images/naruto-logo.png"}
+            src={"/images/logos/naruto-logo.png"}
             alt={"Narutologo"}
             width={300}
             height={0}
