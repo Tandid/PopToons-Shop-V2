@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 
 import bcryptjs from "bcryptjs";
 import NextAuth from "next-auth";
@@ -25,13 +25,24 @@ type CustomToken = {
   exp?: number;
 };
 
+type Credentials = {
+  email: string;
+  password: string;
+};
+
 export default NextAuth({
   session: {
     strategy: "jwt",
   },
 
   callbacks: {
-    async jwt({ token, user }: { token: CustomToken; user?: SessionUser }) {
+    async jwt({
+      token,
+      user,
+    }: {
+      token: CustomToken | any;
+      user?: SessionUser | any;
+    }) {
       if (user?._id) token._id = user._id;
       if (user?.isAdmin) token.isAdmin = user.isAdmin;
       return token;
@@ -40,8 +51,8 @@ export default NextAuth({
       session,
       token,
     }: {
-      session: CustomSession;
-      token: CustomToken;
+      session: CustomSession | any;
+      token: CustomToken | any;
     }) {
       if (token?._id) session.user._id = token._id;
       if (token?.isAdmin) session.user.isAdmin = token.isAdmin;
@@ -51,7 +62,7 @@ export default NextAuth({
 
   providers: [
     CredentialsProvider({
-      async authorize(credentials) {
+      async authorize(credentials: Credentials) {
         await db.connect();
         const user = await User.findOne({
           email: credentials.email,

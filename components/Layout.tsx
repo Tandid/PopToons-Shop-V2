@@ -18,6 +18,14 @@ type LayoutProps = {
   children?: React.ReactElement | string;
 };
 
+type SessionUser = {
+  _id: string;
+  name?: string | null;
+  email?: string | null;
+  image?: string | null;
+  isAdmin?: any;
+};
+
 type CustomSession = {
   user: SessionUser;
 };
@@ -26,7 +34,7 @@ const Layout: React.FC<LayoutProps> = ({
   title,
   children,
 }): React.ReactElement => {
-  const { status, data: session } = useSession<CustomSession>();
+  const { status, data: session } = useSession();
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -115,6 +123,7 @@ const Layout: React.FC<LayoutProps> = ({
                         Order History
                       </Dropdown>
                     </Menu.Item>
+
                     {session.user.isAdmin && (
                       <Menu.Item>
                         <Dropdown

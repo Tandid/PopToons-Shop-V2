@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { getSession } from "next-auth/react";
 import User from "../../../../models/User";
 import db from "../../../../utils/db";

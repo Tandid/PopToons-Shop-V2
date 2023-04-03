@@ -3,11 +3,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
+import { Product } from "../utils/data.interface";
 import { fadeIn, staggerContainer } from "../utils/motion";
 import { Store } from "../utils/Store";
 import ProductItem from "./ProductItem";
 
-const SectionFour: React.FC = ({ products }): React.ReactElement => {
+const SectionFour: React.FC<{ products: Product[] }> = ({
+  products,
+}): React.ReactElement => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 

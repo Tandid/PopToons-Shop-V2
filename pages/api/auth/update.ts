@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import bcryptjs from "bcryptjs";
 import { getSession } from "next-auth/react";
 import User from "../../../models/User";

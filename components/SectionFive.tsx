@@ -3,11 +3,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
+import { Product } from "../utils/data.interface";
 import { fadeIn, staggerContainer } from "../utils/motion";
 import { Store } from "../utils/Store";
 import ProductItem from "./ProductItem";
 
-const SectionFive: React.FC = ({ products }): React.ReactElement => {
+const SectionFive: React.FC<{ products: Product[] }> = ({
+  products,
+}): React.ReactElement => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -56,9 +59,10 @@ const SectionFive: React.FC = ({ products }): React.ReactElement => {
         <div className="scale-125">
           {products
             .filter(
-              (x) => x.category === "Disney" && x.brand === "POP! Moments"
+              (x: { category: string; brand: string }) =>
+                x.category === "Disney" && x.brand === "POP! Moments"
             )
-            .map((product, idx) => (
+            .map((product: Product, idx: number) => (
               <motion.div
                 variants={fadeIn("left", "spring", 1 + idx * 0.3, 1.5)}
                 whileHover={{ scale: 1.05 }}

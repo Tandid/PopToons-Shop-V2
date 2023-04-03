@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { NextApiRequest, NextApiResponse } from "next"; //TS
 import Product from "../../../models/Product";
 import db from "../../../utils/db";

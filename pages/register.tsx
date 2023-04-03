@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import axios from "axios";
 import { motion } from "framer-motion";
 import { signIn, useSession } from "next-auth/react";

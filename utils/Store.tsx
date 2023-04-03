@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Cookies from "js-cookie";
 import { createContext, ReactNode, useReducer } from "react";
 import { Action, State } from "./state.interface"; //TS

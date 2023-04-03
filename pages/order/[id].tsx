@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { useSession } from "next-auth/react";

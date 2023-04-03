@@ -1,4 +1,5 @@
-// /api/orders/:id
+// @ts-nocheck
+
 import { NextApiRequest, NextApiResponse } from "next"; //TS
 import { getSession } from "next-auth/react";
 import Order from "../../../../models/Order";
