@@ -254,7 +254,7 @@ const products: Product[] = [
     name: "Appa",
     slug: "appa",
     category: "Avatar the Last Airbender",
-    image: "/images/products/Appa.png",
+    image: "/images/products/appa.png",
     price: 15,
     brand: "POP!",
     rating: 4.5,
