@@ -45,7 +45,17 @@ const CartScreen: React.FC = (): React.ReactElement => {
         >
           <h1 className="py-4 text-xl font-bold">Shopping Cart</h1>
           {cartItems.length === 0 ? (
-            <div className="py-4">Oops! Looks like your cart is empty. </div>
+            <div className="flex flex-col items-center justify-center">
+              <div className="py-4 text-[18px]">
+                Oops! Looks like your cart is empty. Keep Shopping?
+              </div>
+              <Image
+                src={"/images/backgrounds/emptycart.jpeg"}
+                alt={"sad"}
+                width={250}
+                height={250}
+              ></Image>
+            </div>
           ) : (
             <div className="grid md:grid-cols-4 md:gap-5">
               <div className="overflow-x-auto md:col-span-3">
