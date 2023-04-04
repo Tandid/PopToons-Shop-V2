@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Product } from "../utils/data.interface";
 import { fadeIn, staggerContainer } from "../utils/motion";
@@ -54,6 +55,20 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
             height={500}
             className="scale-75 translate-y-10 "
           ></Image>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "tween", duration: 2, delay: 1 }}
+          className="z-10 text-center"
+        >
+          <Link
+            className="absolute font-bold text-gray-300 -translate-x-10 -translate-y-10 hover:text-gray-100"
+            href="/product/timon-pumbaa"
+          >
+            View Product
+          </Link>
         </motion.div>
       </motion.div>
     </div>
