@@ -26,10 +26,10 @@ const SectionTwo: React.FC = (): React.ReactElement => {
         variants={fadeIn("left", "tween", 1, 1)}
         className="flex flex-col justify-center gap-4 m-4 "
       >
-        <h1 className="font-bold text-center sm: text-[24px] md:text-[26px] lg:-translate-x-10 text-white">
+        <h1 className="font-bold text-center sm: text-[24px] md:text-[26px] lg:-translate-x-5 xl:-translate-x-10 text-white">
           Explore with us!
         </h1>
-        <motion.div className="flex justify-center lg:-translate-x-10">
+        <motion.div className="flex justify-center lg:-translate-x-5 xl:-translate-x-10">
           <Link className="font-bold text-white primary-button" href="/search">
             Shop Now
           </Link>

@@ -8,7 +8,8 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
   products,
 }): React.ReactElement => {
   return (
-    <div className="flex flex-col items-center pt-2 pb-10 text-white bg-gradient-to-r from-sky-700 to-black text-shadow-md">
+    //yello-400 red-800
+    <div className="flex flex-col items-center pt-2 text-white bg-gradient-to-l from-red-800 to-black text-shadow-md">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -16,9 +17,9 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
         className="z-10"
       >
         <Image
-          src={"/images/logos/lionking-logo.png"}
-          alt={"lion king logo"}
-          width={300}
+          src={"/images/logos/demon-slayer-logo.png"}
+          alt={"demon slayer logo"}
+          width={150}
           height={0}
           className="items-center m-5 text-center"
         />
@@ -35,11 +36,11 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
           className="absolute items-center z-1"
         >
           <Image
-            src={"/images/backgrounds/lionking.jpeg"}
+            src={"/images/backgrounds/demonslayer.png"}
             alt={"lionking"}
             width={500}
             height={500}
-            className="scale-90 -translate-x-2 -translate-y-20 opacity-30 rounded-xl md:scale-100 lg:scale-75"
+            className="scale-90 opacity-30 rounded-xl md:scale-125 lg:scale-90"
           />
         </motion.div>
 
@@ -48,11 +49,11 @@ const SectionFive: React.FC<{ products: Product[] }> = ({
           whileHover={{ scale: 1.05 }}
         >
           <Image
-            src={"/images/products/lionking.png"}
-            alt={"lionking"}
+            src={"/images/products/tanjiro2.png"}
+            alt={"tanjiro2"}
             width={500}
             height={500}
-            className="scale-75 translate-y-10 "
+            className="scale-90 translate-y"
           ></Image>
         </motion.div>
       </motion.div>

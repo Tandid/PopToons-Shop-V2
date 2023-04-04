@@ -8,6 +8,7 @@ import FeaturedTwo from "../components/FeaturedTwo";
 import Layout from "../components/Layout";
 import SectionFive from "../components/SectionFive";
 import SectionOne from "../components/SectionOne";
+import SectionSix from "../components/SectionSix";
 import SectionTwo from "../components/SectionTwo";
 import Product from "../models/Product";
 import db from "../utils/db";
@@ -37,8 +38,11 @@ const Home: React.FC = ({ products }): React.ReactElement => {
           </div> */}
           <CollectionOne products={products}></CollectionOne>
           <CollectionTwo products={products}></CollectionTwo>
-          <div className="p-4 mt-8 scale-110 bg-gray-300 "></div>
-          <SectionFive products={products}></SectionFive>
+          {/* <div className="p-4 mt-8 scale-110 bg-gray-300 "></div> */}
+          <div className="flex flex-col justify-center lg:flex-row">
+            <SectionFive products={products}></SectionFive>
+            <SectionSix products={products}></SectionSix>
+          </div>
         </div>
       </div>
     </Layout>
