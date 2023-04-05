@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Bar } from "react-chartjs-2";
 
 import {
@@ -15,6 +14,7 @@ import {
   Tooltip,
 } from "chart.js";
 
+import Link from "next/link";
 import { useEffect, useReducer } from "react";
 import Layout from "../../components/Layout";
 import { getError } from "../../utils/error";
@@ -82,24 +82,20 @@ const AdminDashboardScreen: React.FC = (): React.ReactElement => {
   };
   return (
     <Layout title="Admin Dashboard">
-      <div className="grid md:grid-cols-4 md:gap-5">
-        <div>
-          <ul>
-            <li>
-              <Link className="font-bold" href="/admin/dashboard">
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin/orders">Orders</Link>
-            </li>
-            <li>
-              <Link href="/admin/products">Products</Link>
-            </li>
-            <li>
-              <Link href="/admin/users">Users</Link>
-            </li>
-          </ul>
+      <div className="flex flex-col gap-10 lg:flex-row">
+        <div className="flex items-center gap-5 mt-10 lg:flex-col">
+          <button disabled className="dashboard-inactive">
+            Dashboard
+          </button>
+          <Link className="dashboard-button" href="/admin/orders">
+            Orders
+          </Link>
+          <Link href="/admin/products" className="dashboard-button">
+            Products
+          </Link>
+          <Link className="dashboard-button" href="/admin/users">
+            Users
+          </Link>
         </div>
 
         <motion.div
@@ -120,39 +116,48 @@ const AdminDashboardScreen: React.FC = (): React.ReactElement => {
                   <p className="text-3xl">${summary.ordersPrice} </p>
                   <p>Total Sales</p>
                   <div className="text-gray-400 ">
-                    <Link className=" hover:text-gray-500" href="/admin/orders">
+                    <button
+                      className=" hover:text-gray-500"
+                      href="/admin/orders"
+                    >
                       View Sales
-                    </Link>
+                    </button>
                   </div>
                 </div>
                 <div className="p-5 m-5 card">
                   <p className="text-3xl">{summary.ordersCount} </p>
                   <p>Total Orders</p>
                   <div className="text-gray-400 ">
-                    <Link className=" hover:text-gray-500" href="/admin/orders">
+                    <button
+                      className=" hover:text-gray-500"
+                      href="/admin/orders"
+                    >
                       View Orders
-                    </Link>
+                    </button>
                   </div>
                 </div>
                 <div className="p-5 m-5 card">
                   <p className="text-3xl">{summary.productsCount} </p>
                   <p>Products</p>
                   <div className="text-gray-400 ">
-                    <Link
+                    <button
                       className=" hover:text-gray-500"
                       href="/admin/products"
                     >
                       View Products
-                    </Link>
+                    </button>
                   </div>
                 </div>
                 <div className="p-5 m-5 card">
                   <p className="text-3xl">{summary.usersCount} </p>
                   <p>Users</p>
                   <div className="text-gray-400 ">
-                    <Link className=" hover:text-gray-500" href="/admin/users">
+                    <button
+                      className=" hover:text-gray-500"
+                      href="/admin/users"
+                    >
                       View Users
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>

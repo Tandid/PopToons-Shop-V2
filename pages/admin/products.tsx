@@ -101,24 +101,20 @@ const AdminProductsScreen = () => {
 
   return (
     <Layout title="Admin Products">
-      <div className="grid md:grid-cols-4 md:gap-5">
-        <div>
-          <ul>
-            <li>
-              <Link href="/admin/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link href="/admin/orders">Orders</Link>
-            </li>
-            <li>
-              <Link className="font-bold" href="/admin/products">
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin/users">Users</Link>
-            </li>
-          </ul>
+      <div className="flex flex-col gap-10 lg:flex-row">
+        <div className="flex items-center gap-5 mt-10 lg:flex-col">
+          <Link className="font-bold dashboard-button" href="/admin/dashboard">
+            Dashboard
+          </Link>
+          <Link className="font-bold dashboard-button" href="/admin/orders">
+            Orders
+          </Link>
+          <button disabled className="dashboard-inactive">
+            Products
+          </button>
+          <Link className="dashboard-button" href="/admin/users">
+            Users
+          </Link>
         </div>
 
         <motion.div

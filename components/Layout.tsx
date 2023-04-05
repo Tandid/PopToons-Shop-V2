@@ -83,6 +83,7 @@ const Layout: React.FC<LayoutProps> = ({
                 alt={"Pop Toons Shop"}
                 width={60}
                 height={60}
+                className="active:scale-90"
               ></Image>
             </Link>
 
