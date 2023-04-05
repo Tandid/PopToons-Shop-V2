@@ -21,7 +21,7 @@ const Home: React.FC = ({ products }): React.ReactElement => {
         <SectionOne></SectionOne>
         <div>
           <div className="scale-110 bg-slate-800 p-14">
-            <h1 className="font-bold md:text-[64px] text-[40px] text-gray-500 text-center">
+            <h1 className="font-bold md:text-[64px] text-[36px] text-gray-500 text-center">
               Featured Collection
             </h1>
           </div>

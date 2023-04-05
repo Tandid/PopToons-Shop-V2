@@ -35,7 +35,7 @@ const SectionOne: React.FC = (): React.ReactElement => {
       viewport={{ once: true, amount: 0.25 }}
       className="2xl:max-w-[1280px] w-full mx-auto flex flex-col justify-around lg:flex-row py-10"
     >
-      <div className="flex flex-row items-center justify-around">
+      <div className="flex flex-row flex-wrap items-center justify-around mb-6 sm:flex-nowrap">
         {logos.map((logo, idx) => (
           <motion.div
             variants={fadeIn("up", "spring", 0.5 + idx * 0.3, 1.5)}
@@ -56,11 +56,11 @@ const SectionOne: React.FC = (): React.ReactElement => {
         variants={fadeIn("left", "tween", 1, 1)}
         className="flex-[0.75] flex justify-center flex-col gap-4"
       >
-        <h1 className="font-bold text-center sm: text-[24px] md:text-[26px] text-gray-800">
-          Browse our catalog!
+        <h1 className="hidden sm:block font-bold text-center sm: text-[24px] md:text-[26px] text-gray-800">
+          Check Out Our Exclusive Collection!
         </h1>
-        <p className="font-normal text-center text-[18px] text-gray-600 md:text-[20px]">
-          Shop our unique collection of funkos!
+        <p className="hidden sm:block font-normal text-center text-[18px] text-gray-600 md:text-[20px]">
+          Find the perfect Pop! figure for you.
         </p>
       </motion.div>
     </motion.div>

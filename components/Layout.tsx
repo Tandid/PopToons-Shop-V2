@@ -168,7 +168,7 @@ const Layout: React.FC<LayoutProps> = ({
         {/* //? Search Button */}
         <form
           onSubmit={submitHandler}
-          className="justify-center hidden w-full p-2 mx-auto bg-gray-100 md:flex"
+          className="flex justify-center w-full p-2 mx-auto bg-gray-100"
         >
           <input
             onChange={(e) => setQuery(e.target.value)}

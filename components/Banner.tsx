@@ -43,7 +43,7 @@ const Banner: React.FC = (): React.ReactElement => {
               <img
                 src={image}
                 alt={`banner-${index + 1}`}
-                className="w-full lg:h-[500px] h-auto min-h-[300px] sm:rounded-[20px]"
+                className="w-full lg:h-[500px] h-auto min-h-[250px] sm:rounded-[20px] object-cover"
               ></img>
             </motion.div>
           </SwiperSlide>
