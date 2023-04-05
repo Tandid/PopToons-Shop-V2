@@ -7,8 +7,8 @@ import { useRouter } from "next/router";
 import "../styles/globals.css";
 import { StoreProvider } from "../utils/Store";
 
-// TODO: - navbar color, Shopping Cart Icon with badge, Order details icons, Trash icon background, dashboard css, github, loading icon, possibly add stripe payment
-// FIXME: - Fix env variables, Fix Delete Product Icon and delete user, Use AWS S3 to store images, fix search page refresh, max window image size
+// TODO: - dashboard css, github, loading icon, possibly add stripe payment
+// FIXME: - Fix Delete Product Icon and delete user, Use AWS S3 to store images, fix search page refresh
 const App: React.FC<AppProps> = ({
   Component,
   pageProps: { session, ...pageProps },
