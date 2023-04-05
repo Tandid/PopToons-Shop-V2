@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useReducer } from "react";
 import { useForm } from "react-hook-form";
+import { MoonLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import Layout from "../../../components/Layout";
 import { getError } from "../../../utils/error";
@@ -242,7 +243,11 @@ const AdminProductEditScreen: React.FC = (): React.ReactElement => {
               </div>
               <div className="mb-4">
                 <button disabled={loadingUpdate} className="primary-button">
-                  {loadingUpdate ? "Loading" : "Update"}
+                  {loadingUpdate ? (
+                    <MoonLoader size={18} color={"#000"} loading={true} />
+                  ) : (
+                    "Update"
+                  )}
                 </button>
               </div>
               <div className="py-2 text-gray-400">

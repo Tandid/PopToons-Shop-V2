@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import { Menu } from "@headlessui/react";
 import {
   MagnifyingGlassIcon,
@@ -12,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
+import { MoonLoader } from "react-spinners";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Store } from "../utils/Store";
@@ -75,7 +75,7 @@ const Layout: React.FC<LayoutProps> = ({
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex flex-col justify-between min-h-screen">
         <header>
-          <nav className="flex items-center justify-between h-12 px-4 bg-red-500 shadow-md">
+          <nav className="flex items-center justify-between h-12 px-4 shadow-md bg-gradient-to-b from-red-500 to-red-700">
             {/* //? Home Button */}
             <Link href="/">
               <Image
@@ -83,25 +83,25 @@ const Layout: React.FC<LayoutProps> = ({
                 alt={"Pop Toons Shop"}
                 width={60}
                 height={60}
-                className="bg-red-500"
               ></Image>
             </Link>
 
             <div className="flex justify-center">
               {/* //? Shop */}
               <Link
-                className="p-2 font-bold text-white bg-red-500 text-large hover:text-gray-300"
+                className="p-2 font-bold text-large hover:text-gray-100"
                 href="/search"
               >
                 Shop
               </Link>
               {/* //? Badge */}
               <Link
-                className="p-2 font-bold text-white bg-red-500 text-large hover:text-gray-300"
+                className="p-2 font-bold text-large hover:text-gray-100"
                 href="/cart"
               >
-                <ShoppingCartIcon className="w-6 h-6 hover:scale-105 white"></ShoppingCartIcon>
-
+                <div className="cartIcon">
+                  <ShoppingCartIcon className="w-6 h-6 hover:scale-105"></ShoppingCartIcon>
+                </div>
                 {cartItemsCount > 0 && (
                   <span className="absolute px-2 py-1 ml-3 text-xs font-bold text-white -translate-y-8 bg-red-600 rounded-full">
                     {cartItemsCount}
@@ -110,10 +110,12 @@ const Layout: React.FC<LayoutProps> = ({
               </Link>
               {/* //? If session exists, show username, else show login */}
               {status === "loading" ? (
-                "Loading"
+                <div className="flex items-center justify-center h-full translate-y-2">
+                  <MoonLoader size={18} color={"#000"} loading={true} />
+                </div>
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block font-bold">
-                  <Menu.Button className="px-2 mt-2 text-gray-100 hover:text-gray-300">
+                  <Menu.Button className="px-2 mt-2 hover:text-gray-100">
                     {session.user.name}
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 z-10 w-56 origin-top-right bg-white rounded-lg shadow-lg">

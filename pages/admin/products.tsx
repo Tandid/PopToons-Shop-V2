@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useReducer } from "react";
+import { MoonLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import Layout from "../../components/Layout";
 import { getError } from "../../utils/error";
@@ -130,7 +131,11 @@ const AdminProductsScreen = () => {
               onClick={createHandler}
               className="primary-button"
             >
-              {loadingCreate ? "Loading" : "Create"}
+              {loadingCreate ? (
+                <MoonLoader size={18} color={"#000"} loading={true} />
+              ) : (
+                "Create"
+              )}
             </button>
           </div>
           {loading ? (

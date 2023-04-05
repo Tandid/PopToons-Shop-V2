@@ -7,11 +7,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
+import { MoonLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import Checkout from "../components/Checkout";
 import Layout from "../components/Layout";
-import { getError } from "../utils/error";
 import { Store } from "../utils/Store";
+import { getError } from "../utils/error";
 
 const PlaceOrderScreen: React.FC = (): React.ReactElement => {
   const { state, dispatch } = useContext(Store);
@@ -182,7 +183,11 @@ const PlaceOrderScreen: React.FC = (): React.ReactElement => {
                       onClick={placeOrderHandler}
                       className="w-full text-white primary-button"
                     >
-                      {loading ? "Loading..." : "Place Order"}
+                      {loading ? (
+                        <MoonLoader size={18} color={"#000"} loading={true} />
+                      ) : (
+                        "Place Order"
+                      )}
                     </button>
                   </li>
                 </ul>

@@ -5,6 +5,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useReducer } from "react";
+import { BeatLoader } from "react-spinners";
 import Layout from "../components/Layout";
 import { getError } from "../utils/error";
 
@@ -54,7 +55,9 @@ const OrderHistoryScreen: React.FC = (): React.ReactElement => {
       >
         <h1 className="py-4 text-xl font-bold">Order History</h1>
         {loading ? (
-          <div>Loading...</div>
+          <div>
+            <BeatLoader size={10} color={"#000"} loading={true}></BeatLoader>
+          </div>
         ) : error ? (
           <div className="alert-error">{error}</div>
         ) : (

@@ -26,6 +26,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.cartIcon {
+  color: white;
+}
+
 .card {
   @apply block mb-2 border border-gray-200 rounded-lg shadow-md;
 }
