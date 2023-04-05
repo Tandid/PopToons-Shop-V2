@@ -48,7 +48,7 @@ const AdminOrderScreen: React.FC = (): React.ReactElement => {
 
   return (
     <Layout title="Admin Dashboard">
-      <div className="flex flex-col gap-10 lg:flex-row">
+      <div className="grid lg:grid-cols-4 lg:gap-5">
         <div className="flex items-center gap-5 mt-10 lg:flex-col">
           <Link className="font-bold dashboard-button" href="/admin/dashboard">
             Dashboard
