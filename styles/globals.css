@@ -38,7 +38,7 @@ body {
   @apply px-4 py-2 text-white bg-red-500 rounded shadow outline-none hover:bg-red-600 hover:scale-105 active:bg-red-700;
 }
 .secondary-button {
-  @apply px-4 py-2 bg-blue-300 rounded shadow outline-none hover:bg-blue-500 active:bg-blue-500;
+  @apply px-4 py-2 bg-yellow-400 rounded-full shadow outline-none hover:bg-yellow-500 active:bg-yellow-400;
 }
 
 .default-button {
@@ -46,7 +46,7 @@ body {
 }
 
 label {
-  @apply font-bold bg-white;
+  @apply font-semibold bg-white;
 }
 
 input,

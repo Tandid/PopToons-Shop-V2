@@ -60,7 +60,7 @@ const RegisterScreen = () => {
           className="max-w-screen-md mx-auto"
           onSubmit={handleSubmit(submitHandler)}
         >
-          <h1 className="mb-4 text-xl">Create Account</h1>
+          <h1 className="mb-4 text-xl font-bold">Create Account</h1>
           <div className="mb-4">
             <label htmlFor="name">Name</label>
             <input
@@ -145,7 +145,9 @@ const RegisterScreen = () => {
           </div>
           <div className="mb-4 ">
             Already have an account? &nbsp;
-            <Link href={`/login`}>Sign in Here.</Link>
+            <Link className="text-sky-600 hover:text-sky-800" href={`/login`}>
+              Sign in Here.
+            </Link>
           </div>
         </form>
       </motion.div>

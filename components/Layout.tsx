@@ -89,7 +89,7 @@ const Layout: React.FC<LayoutProps> = ({
             <div className="flex justify-center">
               {/* //? Shop */}
               <Link
-                className="p-2 font-bold text-large hover:text-gray-100"
+                className="p-2 font-medium text-large hover:text-gray-100"
                 href="/search"
               >
                 Shop
@@ -100,10 +100,10 @@ const Layout: React.FC<LayoutProps> = ({
                 href="/cart"
               >
                 <div className="cartIcon">
-                  <ShoppingCartIcon className="w-6 h-6 hover:scale-105"></ShoppingCartIcon>
+                  <ShoppingCartIcon className="w-6 h-6 hover:scale-110"></ShoppingCartIcon>
                 </div>
                 {cartItemsCount > 0 && (
-                  <span className="absolute px-2 py-1 ml-3 text-xs font-bold text-white -translate-y-8 bg-red-600 rounded-full">
+                  <span className="absolute px-2 py-1 ml-3 text-xs font-bold text-white -translate-y-8 bg-red-500 rounded-full border-[1px]">
                     {cartItemsCount}
                   </span>
                 )}
@@ -114,7 +114,7 @@ const Layout: React.FC<LayoutProps> = ({
                   <MoonLoader size={18} color={"#000"} loading={true} />
                 </div>
               ) : session?.user ? (
-                <Menu as="div" className="relative inline-block font-bold">
+                <Menu as="div" className="relative inline-block font-medium">
                   <Menu.Button className="px-2 mt-2 hover:text-gray-100">
                     {session.user.name}
                   </Menu.Button>
@@ -156,7 +156,7 @@ const Layout: React.FC<LayoutProps> = ({
                 </Menu>
               ) : (
                 <Link
-                  className="p-2 font-bold text-white bg-red-500 text-large"
+                  className="p-2 font-medium text-large hover:text-gray-100"
                   href="/login"
                 >
                   Login

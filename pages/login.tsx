@@ -61,7 +61,7 @@ const LoginScreen: React.FC = (): React.ReactElement => {
           className="max-w-screen-md mx-auto"
           onSubmit={handleSubmit(submitHandler)}
         >
-          <h1 className="mb-4 text-xl">Login</h1>
+          <h1 className="mb-4 text-xl font-bold">Login</h1>
 
           {/* Email */}
 
@@ -116,7 +116,12 @@ const LoginScreen: React.FC = (): React.ReactElement => {
           </div>
           <div className="mb-4">
             Don&apos;t have an account? &nbsp;
-            <Link href={`/register?redirect=${redirect || "/"}`}>Register</Link>
+            <Link
+              className="text-sky-600 hover:text-sky-800"
+              href={`/register?redirect=${redirect || "/"}`}
+            >
+              Register Here.
+            </Link>
           </div>
         </form>
       </motion.div>

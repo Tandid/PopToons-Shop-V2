@@ -1,4 +1,8 @@
-import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import {
+  PencilSquareIcon,
+  PlusIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -126,20 +130,16 @@ const AdminProductsScreen = () => {
           <div className="flex justify-between">
             <h1 className="py-4 text-xl font-bold">Products</h1>
             {loadingDelete && <div>Deleting item...</div>}
-            <button
-              disabled={loadingCreate}
-              onClick={createHandler}
-              className="primary-button"
-            >
-              {loadingCreate ? (
-                <MoonLoader size={18} color={"#000"} loading={true} />
-              ) : (
-                "Create"
-              )}
-            </button>
+            {loadingCreate ? (
+              <MoonLoader size={18} color={"#000"} loading={true} />
+            ) : (
+              <button disabled={loadingCreate} onClick={createHandler}>
+                <PlusIcon className="w-10 h-10 p-2 bg-yellow-400 rounded-full hover:bg-yellow-500" />
+              </button>
+            )}
           </div>
           {loading ? (
-            <div>Loading...</div>
+            <MoonLoader size={18} color={"#000"} loading={true} />
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
