@@ -89,7 +89,7 @@ const Layout: React.FC<LayoutProps> = ({
             <div className="flex justify-center">
               {/* //? Shop */}
               <Link
-                className="p-2 font-medium text-large hover:text-gray-100"
+                className="p-2 font-medium text-large hover:text-gray-100 active:text-black"
                 href="/search"
               >
                 Shop
@@ -100,7 +100,7 @@ const Layout: React.FC<LayoutProps> = ({
                 href="/cart"
               >
                 <div className="cartIcon">
-                  <ShoppingCartIcon className="w-6 h-6 hover:scale-110"></ShoppingCartIcon>
+                  <ShoppingCartIcon className="w-6 h-6 hover:scale-110 active:scale-100"></ShoppingCartIcon>
                 </div>
                 {cartItemsCount > 0 && (
                   <span className="absolute px-2 py-1 ml-3 text-xs font-bold text-white -translate-y-8 bg-red-500 rounded-full border-[1px]">
@@ -115,7 +115,7 @@ const Layout: React.FC<LayoutProps> = ({
                 </div>
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block font-medium">
-                  <Menu.Button className="px-2 mt-2 hover:text-gray-100">
+                  <Menu.Button className="px-2 mt-2 hover:text-gray-100 active:text-black">
                     {session.user.name}
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 z-10 w-56 origin-top-right bg-white rounded-lg shadow-lg">
@@ -156,7 +156,7 @@ const Layout: React.FC<LayoutProps> = ({
                 </Menu>
               ) : (
                 <Link
-                  className="p-2 font-medium text-large hover:text-gray-100"
+                  className="p-2 font-medium text-large hover:text-gray-100 active:text-black"
                   href="/login"
                 >
                   Login
@@ -177,11 +177,11 @@ const Layout: React.FC<LayoutProps> = ({
             placeholder="Search products"
           />
           <button
-            className="p-1 text-sm rounded rounded-tl-none rounded-bl-none bg-amber-300 dark:text-black"
+            className="p-1 text-sm rounded rounded-tl-none rounded-bl-none bg-amber-300 hover:bg-yellow-400 active:bg-yellow-300"
             type="submit"
             id="button-addon2"
           >
-            <MagnifyingGlassIcon className="w-5 h-5 hover:scale-105"></MagnifyingGlassIcon>
+            <MagnifyingGlassIcon className="w-5 h-5"></MagnifyingGlassIcon>
           </button>
         </form>
         <main className="container px-4 m-auto mt-4">{children}</main>

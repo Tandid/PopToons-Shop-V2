@@ -55,7 +55,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
         </motion.button>
 
         <Link className="py-2" href={`/product/${product.slug}`}>
-          <ArrowTopRightOnSquareIcon className="w-6 h-6 hover:scale-110"></ArrowTopRightOnSquareIcon>
+          <ArrowTopRightOnSquareIcon className="w-6 h-6 hover:scale-110 active:scale-100"></ArrowTopRightOnSquareIcon>
         </Link>
       </div>
     </motion.div>

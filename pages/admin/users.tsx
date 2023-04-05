@@ -127,7 +127,7 @@ const AdminUsersScreen: React.FC = (): React.ReactElement => {
                       <td className="p-5 ">
                         <div className="flex gap-1">
                           <Link href={`/admin/user/${user._id}`} passHref>
-                            <PencilSquareIcon className="w-5 h-5 hover:scale-125">
+                            <PencilSquareIcon className="w-5 h-5 hover:scale-125 active-scale-100">
                               Edit
                             </PencilSquareIcon>
                           </Link>
@@ -136,7 +136,7 @@ const AdminUsersScreen: React.FC = (): React.ReactElement => {
                             type="button"
                             onClick={() => deleteHandler(user._id)}
                           >
-                            <TrashIcon className="w-5 h-5 hover:scale-125"></TrashIcon>
+                            <TrashIcon className="w-5 h-5 hover:scale-125 active:scale-100"></TrashIcon>
                           </button>
                         </div>
                       </td>

@@ -96,7 +96,7 @@ const OrderHistoryScreen: React.FC = (): React.ReactElement => {
                         href={`/order/${order._id}`}
                         passHref
                       >
-                        <EyeIcon className="w-5 h-5 hover:scale-125"></EyeIcon>
+                        <EyeIcon className="w-5 h-5 hover:scale-125 active:scale-100"></EyeIcon>
                       </Link>
                     </td>
                   </tr>

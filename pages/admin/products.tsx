@@ -168,7 +168,7 @@ const AdminProductsScreen = () => {
                       <td className="p-5 ">
                         <div className="flex gap-1">
                           <Link href={`/admin/product/${product._id}`}>
-                            <PencilSquareIcon className="w-5 h-5 hover:scale-125">
+                            <PencilSquareIcon className="w-5 h-5 hover:scale-125 active:scale-100">
                               Edit
                             </PencilSquareIcon>
                           </Link>
@@ -177,7 +177,7 @@ const AdminProductsScreen = () => {
                             onClick={() => deleteHandler(product._id)}
                             type="button"
                           >
-                            <TrashIcon className="w-5 h-5 hover:scale-125"></TrashIcon>
+                            <TrashIcon className="w-5 h-5 hover:scale-125 active:scale-100"></TrashIcon>
                           </button>
                         </div>
                       </td>

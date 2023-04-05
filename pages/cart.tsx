@@ -10,8 +10,8 @@ import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
 import Layout from "../components/Layout";
-import { Product } from "../utils/data.interface";
 import { Store } from "../utils/Store";
+import { Product } from "../utils/data.interface";
 
 const CartScreen: React.FC = (): React.ReactElement => {
   const router = useRouter();
@@ -107,7 +107,7 @@ const CartScreen: React.FC = (): React.ReactElement => {
                         <td className="px-5 text-right">${item.price}</td>
                         <td className="px-5 text-center">
                           <button onClick={() => removeItemHandler(item)}>
-                            <TrashIcon className="w-5 h-5 hover:scale-125"></TrashIcon>
+                            <TrashIcon className="w-5 h-5 hover:scale-125 active:scale-100"></TrashIcon>
                           </button>
                         </td>
                       </tr>
