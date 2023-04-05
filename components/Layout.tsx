@@ -1,7 +1,10 @@
 // @ts-nocheck
 
 import { Menu } from "@headlessui/react";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import {
+  MagnifyingGlassIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/24/outline";
 import Cookies from "js-cookie";
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
@@ -11,8 +14,8 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { CartItem } from "../utils/data.interface"; //TS
 import { Store } from "../utils/Store";
+import { CartItem } from "../utils/data.interface"; //TS
 import Dropdown from "./Dropdown";
 import Footer from "./Footer";
 
@@ -84,7 +87,7 @@ const Layout: React.FC<LayoutProps> = ({
               ></Image>
             </Link>
 
-            <div>
+            <div className="flex justify-center">
               {/* //? Shop */}
               <Link
                 className="p-2 font-bold text-white bg-red-500 text-large hover:text-gray-300"
@@ -97,9 +100,10 @@ const Layout: React.FC<LayoutProps> = ({
                 className="p-2 font-bold text-white bg-red-500 text-large hover:text-gray-300"
                 href="/cart"
               >
-                Cart
+                <ShoppingCartIcon className="w-6 h-6 hover:scale-105 white"></ShoppingCartIcon>
+
                 {cartItemsCount > 0 && (
-                  <span className="px-2 py-1 ml-1 text-xs font-bold text-white bg-red-600 rounded-full">
+                  <span className="absolute px-2 py-1 ml-3 text-xs font-bold text-white -translate-y-8 bg-red-600 rounded-full">
                     {cartItemsCount}
                   </span>
                 )}
@@ -109,7 +113,7 @@ const Layout: React.FC<LayoutProps> = ({
                 "Loading"
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block font-bold">
-                  <Menu.Button className="px-2 text-gray-100 bg-red-500 hover:text-gray-300">
+                  <Menu.Button className="px-2 mt-2 text-gray-100 hover:text-gray-300">
                     {session.user.name}
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 z-10 w-56 origin-top-right bg-white rounded-lg shadow-lg">

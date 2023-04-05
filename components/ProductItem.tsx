@@ -47,17 +47,15 @@ const ProductItem: React.FC<ProductItemProps> = ({
       <div className="flex justify-around p-2 bg-gray-100 rounded-b-lg">
         <motion.button
           whileHover={{ scale: 1.05 }}
-          className="text-white primary-button"
+          className="primary-button"
           type="button"
           onClick={() => addToCartHandler(product)}
         >
           Add to Cart
         </motion.button>
 
-        <Link className="bg-transparent" href={`/product/${product.slug}`}>
-          <button className="p-2 bg-transparent">
-            <ArrowTopRightOnSquareIcon className="h-5 bg-transparent w-15"></ArrowTopRightOnSquareIcon>
-          </button>
+        <Link className="py-2" href={`/product/${product.slug}`}>
+          <ArrowTopRightOnSquareIcon className="w-6 h-6 hover:scale-110"></ArrowTopRightOnSquareIcon>
         </Link>
       </div>
     </motion.div>

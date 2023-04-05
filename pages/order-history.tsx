@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import { EyeIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -92,7 +93,7 @@ const OrderHistoryScreen: React.FC = (): React.ReactElement => {
                         href={`/order/${order._id}`}
                         passHref
                       >
-                        Order Details
+                        <EyeIcon className="w-5 h-5 hover:scale-125"></EyeIcon>
                       </Link>
                     </td>
                   </tr>

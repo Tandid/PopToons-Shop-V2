@@ -170,7 +170,6 @@ const AdminProductsScreen = () => {
 
                           <button
                             onClick={() => deleteHandler(product._id)}
-                            className="default-button"
                             type="button"
                           >
                             <TrashIcon className="w-5 h-5 hover:scale-125"></TrashIcon>
