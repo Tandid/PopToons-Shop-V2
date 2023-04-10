@@ -5,9 +5,9 @@ import React from "react";
 import { Product } from "../utils/data.interface";
 import { fadeIn, staggerContainer } from "../utils/motion";
 
-const SectionFive: React.FC<{ products: Product[] }> = ({
-  products,
-}): React.ReactElement => {
+const SectionFive: React.FC<{
+  products: Product[];
+}> = (): React.ReactElement => {
   return (
     //yello-400 red-800
     <div className="flex flex-col items-center pt-2 text-white bg-gradient-to-l from-red-800 to-black text-shadow-md">
