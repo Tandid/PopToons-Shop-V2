@@ -5,11 +5,11 @@ https://poptoons-shop.vercel.app/ is an E-commerce site that sells pop vinyl fig
 
 ## What was used?
 
-Pop Toons Shop was implemented using Typescript, Node, React, MongoDB, NextJS, ContextAPI, Tailwind CSS, Framer Motion, and Vercel.
+Pop Toons Shop was implemented using Typescript, Node, React, MongoDB, NextJS, ContextAPI, Jest, TailwindCSS, Framer Motion, and Vercel.
 
 ## Key Features
 
-- Users have the option to sign up for an account, login using Demo Accounts, or shop as guests. As a guest, they are able to merge carts if they want to create an account later on.
+- All Users get a chance to explore the landing and shopping page. As a guest, they are able to merge carts to an account which they create later on or use a demo account to login with.
 
 
 ![Demo 1](https://github.com/Tandid/PopToonsV2/blob/main/public/images/gifs/poptoons1.gif)
@@ -21,7 +21,7 @@ Pop Toons Shop was implemented using Typescript, Node, React, MongoDB, NextJS, C
 ![Demo 2](https://github.com/Tandid/PopToonsV2/blob/main/public/images/gifs/poptoons2.gif)
 
 
-- Admins have access to a dashboard for viewing sales and adding/editing products, updating users, and completing orders.
+- Admins have access to a dashboard for viewing sales, adding/editing products, updating users, and completing orders.
 
 
 ![Demo 3](https://github.com/Tandid/PopToonsV2/blob/main/public/images/gifs/poptoons3.gif)
