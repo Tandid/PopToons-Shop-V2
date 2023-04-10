@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useReducer } from "react";
 import Layout from "../../components/Layout";
+import { formatDate } from "../../helpers/formatDate";
 import { getError } from "../../utils/error";
 
 function reducer(state, action) {
@@ -40,11 +41,6 @@ const AdminOrderScreen: React.FC = (): React.ReactElement => {
     };
     fetchData();
   }, []);
-
-  const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
 
   return (
     <Layout title="Admin Dashboard">

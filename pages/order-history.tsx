@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useReducer } from "react";
 import { BeatLoader } from "react-spinners";
 import Layout from "../components/Layout";
+import { formatDate } from "../helpers/formatDate";
 import { getError } from "../utils/error";
 
 function reducer(state, action) {
@@ -40,11 +41,6 @@ const OrderHistoryScreen: React.FC = (): React.ReactElement => {
     };
     fetchOrders();
   }, []);
-
-  const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
 
   return (
     <Layout title="Order History">

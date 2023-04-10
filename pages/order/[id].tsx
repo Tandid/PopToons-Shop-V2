@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
 import Layout from "../../components/Layout";
+import { formatDate } from "../../helpers/formatDate";
 import { getError } from "../../utils/error";
 
 function reducer(state, action) {
@@ -169,11 +170,6 @@ const OrderScreen: React.FC = (): React.ReactElement => {
       toast.error(getError(err));
     }
   }
-
-  const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
 
   return (
     <Layout title={`Order #${orderId}`}>
