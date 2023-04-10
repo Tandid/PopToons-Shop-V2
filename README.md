@@ -12,19 +12,19 @@ Pop Toons Shop was implemented using Typescript, Node, React, MongoDB, NextJS, C
 - Users have the option to sign up for an account, login using Demo Accounts, or shop as guests. As a guest, they are able to merge carts if they want to create an account later on.
 
 
-![Demo 1](https://github.com/Tandid/poptoons-shop/blob/main/client/public/images/poptoons1.gif)
+![Demo 1](https://github.com/Tandid/PopToonsV2/blob/main/public/images/gifs/poptoons1.gif)
 
 
-- Users go through a checkout system and can input 42424242424 4/24 4242 as card details in order to fulfill payment. From there, they get an order receipt and can they can view their order history if they have an account.
+- Users go through a checkout system where they add items to cart and process a fake payment in order to purchase products.
 
 
-![Demo 2](https://github.com/Tandid/poptoons-shop/blob/main/client/public/images/poptoons2.gif)
+![Demo 2](https://github.com/Tandid/PopToonsV2/blob/main/public/images/gifs/poptoons2.gif)
 
 
-- Admins have access to more features such as adding/editing products, changing user admin status, and completing or canceling orders.
+- Admins have access to a dashboard for viewing sales and adding/editing products, updating users, and completing orders.
 
 
-![Demo 3](https://github.com/Tandid/poptoons-shop/blob/main/client/public/images/poptoons3.gif)
+![Demo 3](https://github.com/Tandid/PopToonsV2/blob/main/public/images/gifs/poptoons3.gif)
 
 
 
